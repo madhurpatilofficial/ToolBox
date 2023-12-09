@@ -13,6 +13,9 @@ export class ColorDisplayComponent {
   gradientColors: string[] = ['linear-gradient(90deg, red, blue)', 'linear-gradient(90deg, green, yellow)', 'linear-gradient(90deg, purple, cyan)', 'linear-gradient(90deg, magenta, orange)'];
   colorFormats: { [key: string]: string } = {};
 
+  formatLeft = 0;
+  formatTop = 0;
+
   constructor() {
     // Initialize color formats for normal colors
     this.normalColors.forEach(color => {
@@ -33,5 +36,12 @@ export class ColorDisplayComponent {
     const computedColor = getComputedStyle(dummyElement).color;
     document.body.removeChild(dummyElement);
     this.colorFormats[color] = computedColor;
+  }
+
+  onColorBoxClick(event: MouseEvent, color: string): void {
+    this.selectedColor = color;
+
+    this.formatLeft = event.clientX;
+    this.formatTop = event.clientY;
   }
 }
