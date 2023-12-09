@@ -1,0 +1,20 @@
+<div class="calculator">
+  <div class="input-display">
+    <div class="input-box">
+      <label for="input" class="label">Input</label>
+      <div class="input">{{ currentInput }}</div>
+    </div>
+  </div>
+  <div class="output-display">
+    <div class="output-box">
+      <label for="output" class="label">Output</label>
+      <div class="output">{{ result }}</div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button *ngFor="let button of calculatorButtons" (click)="handleButtonClick(button.value)">
+      {{ button.label }}
+    </button>
+  </div>
+</div>

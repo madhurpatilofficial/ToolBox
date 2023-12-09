@@ -1,0 +1,81 @@
+.calculator {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background: linear-gradient(90deg, hsla(211, 96%, 62%, 1) 0%, hsla(295, 94%, 76%, 1) 100%);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.input-display,
+.output-display {
+  background: linear-gradient(90deg, hsla(152, 100%, 50%, 1) 0%, hsla(186, 100%, 69%, 1) 100%);
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  text-align: center; /* Center align text */
+}
+
+.label {
+  color: #000000; /* Set label color to white */
+  margin-bottom: 5px;
+}
+
+.input,
+.output {
+  font-size: 1.5em;
+  color: blue
+
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  padding: 15px;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.button-color-1 {
+  background: linear-gradient(90deg, hsla(211, 96%, 62%, 1) 0%, hsla(295, 94%, 76%, 1) 100%);
+  color: #fff;
+}
+
+.button-color-2 {
+  background: linear-gradient(90deg, hsla(148, 100%, 47%, 1) 0%, hsla(211, 90%, 47%, 1) 100%);
+  color: #fff;
+}
+
+.button-color-3 {
+  background: linear-gradient(90deg, hsla(348, 88%, 66%, 1) 0%, hsla(36, 89%, 68%, 1) 100%);
+  color: #fff;
+}
+
+.button-color-4 {
+  background: linear-gradient(90deg, hsla(280, 95%, 57%, 1) 0%, hsla(193, 90%, 55%, 1) 100%);
+  color: #fff;
+}
+
+button.double {
+  grid-column: span 2;
+}
+
+button:hover {
+  background: linear-gradient(90deg, hsla(280, 84%, 41%, 1) 0%, hsla(218, 97%, 56%, 1) 100%);
+  color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+  .calculator {
+    width: 90%;
+  }
+}
