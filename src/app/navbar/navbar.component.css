@@ -63,22 +63,17 @@ nav a:hover {
         flex-direction: column;
     }
 
-    nav .brand {
-        margin-bottom: 10px;
-    }
-
     nav ul {
         margin-top: 10px;
         justify-content: center;
-        max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease-in-out;
+        background-color: linear-gradient(90deg, hsla(211, 96%, 62%, 1) 0%, hsla(295, 94%, 76%, 1) 100%);
+        border-radius: 12px;
     }
 
     nav li {
         margin: 5px 0;
-    }
-    nav li {
         font-weight: normal;
     }
 
@@ -90,6 +85,7 @@ nav a:hover {
         max-height: 200px;
     }
 }
+
 
 @media screen and (min-width: 601px) and (max-width: 1024px) {
     nav {

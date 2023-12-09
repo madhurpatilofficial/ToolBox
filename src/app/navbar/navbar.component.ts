@@ -1,4 +1,7 @@
+// navbar.component.ts
+
 import { Component, HostListener, OnInit } from '@angular/core';
+import { and } from 'mathjs';
 
 @Component({
   selector: 'app-navbar',
@@ -6,18 +9,20 @@ import { Component, HostListener, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  isMenuVisible = false;
+  isMenuVisible = false; // Ensure it is initially set to false
   menuIconActive = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log("Initial isMenuVisible:", this.isMenuVisible);
     this.checkScreenSize();
   }
 
   toggleMenu() {
     this.isMenuVisible = !this.isMenuVisible;
-    this.menuIconActive = !this.menuIconActive;
+    this.menuIconActive = this.isMenuVisible;
+    console.log("Toggled isMenuVisible:", this.isMenuVisible);
   }
 
   @HostListener('window:resize', ['$event'])
@@ -25,7 +30,8 @@ export class NavbarComponent implements OnInit {
     this.checkScreenSize();
   }
 
+
   private checkScreenSize() {
-    this.isMenuVisible = window.innerWidth > 600;
+    this.isMenuVisible = window.innerWidth > 1600;
   }
 }

@@ -1,12 +1,11 @@
-/* home.component.css */
 .home-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     margin: 20px;
-  }
-  
-  .service {
+}
+
+.service {
     width: 300px;
     margin: 20px;
     padding: 15px;
@@ -14,26 +13,33 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
-  }
-  
-  .service:hover {
-    transform: scale(1.05);
-  }
-  
-  img {
+}
+
+.service:hover {
+    transform: scale(1.10);
+    background: linear-gradient(90deg, #da70d6, #00fa9a)
+
+}
+
+img {
     width: 100%;
     height: auto;
     border-radius: 8px;
-  }
-  
-  .service-info {
+}
+
+.service-info {
     margin-top: 15px;
-    text-align: center; /* Center text in service-info */
-  }
-  
-  @media screen and (max-width: 768px) {
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
     .service {
-      width: calc(50% - 40px); /* Adjust width and margin for smaller screens */
+        width: calc(100% - 40px); /* Adjusted width for smaller screens */
     }
-  }
-  
+}
+
+@media screen and (min-width: 1200px) {
+    .service {
+        width: 250px; /* Adjusted width for larger screens */
+    }
+}
