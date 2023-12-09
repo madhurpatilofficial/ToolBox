@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CalculatorComponent } from './calculator/calculator.component';
-import { CurrencyconverterComponent } from './currencyconverter/currencyconverter.component';
 import { FindcapitalComponent } from './findcapital/findcapital.component';
+import { CurrencyconverterComponent } from './currencyconverter/currencyconverter.component';
 
 const routes: Routes = [
   {

@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { DomSanitizer, SafeHtml, SafeScript, SafeStyle, SafeUrl, SafeResourceUrl } from '@angular/platform-browser';
-import * as math from 'mathjs';
+import { Component, OnInit } from '@angular/core';
 
 interface CalculatorButton {
   label: string;
@@ -12,7 +10,7 @@ interface CalculatorButton {
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.css']
 })
-export class CalculatorComponent {
+export class CalculatorComponent implements OnInit {
   result: string = '';
   currentInput: string = '';
 
@@ -32,14 +30,10 @@ export class CalculatorComponent {
     { label: '0', value: '0' },
     { label: '.', value: '.' },
     { label: '+', value: '+' },
-    { label: 'sin', value: 'sin(' },
-    { label: 'cos', value: 'cos(' },
-    { label: 'tan', value: 'tan(' },
     { label: 'C', value: 'C' }
   ];
-  
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -50,36 +44,13 @@ export class CalculatorComponent {
     } else if (value === 'C') {
       this.clear();
     } else {
-      this.currentInput += this.processValue(value);
+      this.currentInput += value;
+      this.calculateResult(); // Calculate result as the user types
     }
   }
-
-  processValue(value: string): string {
-    switch (value) {
-      case 'sin':
-      case 'cos':
-      case 'tan':
-        return `${value}(`;
-      default:
-        return value;
-    }
-  }
-
-  calculateResult(): void {
+   calculateResult(): void {
     try {
-      // Replace trigonometric functions with mathjs equivalents
-      const sanitizedInput = this.currentInput
-        .replace(/sin/g, 'math.sin')
-        .replace(/cos/g, 'math.cos')
-        .replace(/tan/g, 'math.tan');
-
-      const result = math.evaluate(sanitizedInput);
-
-      if (!isNaN(result)) {
-        this.result = result.toString();
-      } else {
-        this.result = 'Error';
-      }
+      this.result = eval(this.currentInput).toString();
     } catch (error) {
       this.result = 'Error';
     }
