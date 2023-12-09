@@ -1,0 +1,39 @@
+/* home.component.css */
+.home-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .service {
+    width: 300px;
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .service:hover {
+    transform: scale(1.05);
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .service-info {
+    margin-top: 15px;
+    text-align: center; /* Center text in service-info */
+  }
+  
+  @media screen and (max-width: 768px) {
+    .service {
+      width: calc(50% - 40px); /* Adjust width and margin for smaller screens */
+    }
+  }
+  
