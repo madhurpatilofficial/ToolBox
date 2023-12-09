@@ -1,0 +1,24 @@
+<!-- color-display.component.html -->
+<div class="color-container">
+  <div class="color-section">
+    <h2>Normal Colors</h2>
+    <div class="color-boxes">
+      <div *ngFor="let color of normalColors" class="color-box" (click)="selectedColor = color">
+        <div [style.background]="color"></div>
+      </div>
+    </div>
+  </div>
+  <div class="color-section">
+    <h2>Gradient Colors</h2>
+    <div class="color-boxes">
+      <div *ngFor="let color of gradientColors" class="color-box" (click)="selectedColor = color">
+        <div [style.background]="color"></div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="selectedColor" class="color-formats">
+    <h3>RGB Format for {{ selectedColor }}</h3>
+    <div class="format">{{ colorFormats[selectedColor] }}</div>
+  </div>
+</div>

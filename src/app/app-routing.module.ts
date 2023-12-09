@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { FindcapitalComponent } from './findcapital/findcapital.component';
 import { CurrencyconverterComponent } from './currencyconverter/currencyconverter.component';
+import { ColorDisplayComponent } from './color-display/color-display.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'findcapital',
     component: FindcapitalComponent
+  },
+  {
+    path: 'colorpicker',
+    component: ColorDisplayComponent
   }
 ];
 

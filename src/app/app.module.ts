@@ -10,6 +10,7 @@ import { FindcapitalComponent } from './findcapital/findcapital.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrencyconverterComponent } from './currencyconverter/currencyconverter.component';
+import { ColorDisplayComponent } from './color-display/color-display.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CurrencyconverterComponent } from './currencyconverter/currencyconverte
     CalculatorComponent,
     FindcapitalComponent,
     HomeComponent,
-    CurrencyconverterComponent
+    CurrencyconverterComponent,
+    ColorDisplayComponent
   ],
   imports: [
     BrowserModule,
