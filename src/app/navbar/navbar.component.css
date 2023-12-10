@@ -13,7 +13,18 @@ nav {
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
+
+
 }
+
+
+
+.brand-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 
 nav .brand {
     color: rgb(0, 0, 0);
@@ -28,14 +39,19 @@ nav ul {
     padding: 0;
     overflow: hidden;
     display: flex;
+    flex-wrap: wrap;
+    /* Allow items to wrap to the next line on smaller screens */
     align-items: center;
+    justify-content: center;
     border-radius: 12px;
 }
 
 nav li {
-    margin: 0 15px;
     border-radius: 12px;
     font-weight: bold;
+    margin: 5px;
+    /* Add some margin around each item for spacing */
+    font-weight: normal;
 }
 
 nav a {
@@ -59,17 +75,25 @@ nav a:hover {
 }
 
 @media screen and (max-width: 600px) {
+
+
+    nav {
+        flex-direction: column;
+    }
+
+    .brand-container {
+        margin-bottom: 10px;
+    }
+
+
     nav {
         flex-direction: column;
     }
 
     nav ul {
         margin-top: 10px;
-        justify-content: center;
-        overflow: hidden;
         transition: max-height 0.3s ease-in-out;
         background-color: linear-gradient(90deg, hsla(211, 96%, 62%, 1) 0%, hsla(295, 94%, 76%, 1) 100%);
-        border-radius: 12px;
     }
 
     nav li {
@@ -81,7 +105,7 @@ nav a:hover {
         display: block;
     }
 
-    .menu-icon.active + ul {
+    .menu-icon.active+ul {
         max-height: 200px;
     }
 }
@@ -97,5 +121,8 @@ nav a:hover {
 @media screen and (min-width: 1025px) {
     nav {
         padding: 20px;
+    }
+    nav li {
+        font-weight:bold;
     }
 }
