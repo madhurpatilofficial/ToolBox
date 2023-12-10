@@ -1,0 +1,14 @@
+<!-- findflag.component.html -->
+<div>
+    <label for="countrySelect">Select a Country:</label>
+    <select id="countrySelect" [(ngModel)]="selectedCountry" (change)="loadFlag()">
+      <option value="" disabled>Select a country</option>
+      <option *ngFor="let country of countries" [value]="country.value">{{ country.display }}</option>
+    </select>
+  
+    <div *ngIf="flagUrl">
+      <img [src]="flagUrl" alt="Country Flag">
+      <button (click)="downloadFlag()">Download Flag</button>
+    </div>
+  </div>
+  

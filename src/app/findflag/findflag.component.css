@@ -1,0 +1,79 @@
+/* findflag.component.css */
+
+/* Container styles */
+div {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: rgb(142, 214, 252);
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Label styles */
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Select styles */
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #000000;
+}
+
+/* Image styles */
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    /* Added margin between flag and button */
+    border-radius: 12px;
+}
+
+/* Button styles */
+button {
+    display: block;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 12px;
+    background: white;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to bottom right, #e98b07, #27f67d);
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    div {
+        max-width: 100%;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    select,
+    button {
+        font-size: 14px;
+    }
+}
