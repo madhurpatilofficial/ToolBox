@@ -5,7 +5,7 @@ body {
 }
 
 nav {
-    background: linear-gradient(90deg, hsla(211, 96%, 62%, 1) 0%, hsla(295, 94%, 76%, 1) 100%);
+    background: linear-gradient(90deg, #1e90ff, #ff69b4);
     overflow: hidden;
     display: flex;
     justify-content: space-between;
@@ -28,12 +28,13 @@ nav {
 
 nav .brand {
     color: rgb(0, 0, 0);
-    font-size: 1.5em;
+    font-size: 2.5em;
     display: flex;
     align-items: center;
 }
 
 nav ul {
+    font-size: large;
     list-style-type: none;
     margin: 0;
     padding: 0;

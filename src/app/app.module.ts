@@ -14,6 +14,7 @@ import { FindflagComponent } from './findflag/findflag.component';
 import { FinduniversityComponent } from './finduniversity/finduniversity.component';
 import { UniversityService } from './university.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CurrencyconverterComponent,
     ColorDisplayComponent,
     FindflagComponent,
-    FinduniversityComponent
+    FinduniversityComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
