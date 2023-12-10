@@ -13,6 +13,7 @@ import { ColorDisplayComponent } from './color-display/color-display.component';
 import { FindflagComponent } from './findflag/findflag.component';
 import { FinduniversityComponent } from './finduniversity/finduniversity.component';
 import { UniversityService } from './university.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { UniversityService } from './university.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [UniversityService],
   bootstrap: [AppComponent]

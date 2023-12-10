@@ -58,8 +58,10 @@ label {
 
 /* No universities found message */
 .no-universities {
-  color: #e74c3c;
+  color: #1cf119;
   text-align: center;
+  font-weight: bolder;
+  font-size: larger;
 }
 
 /* Media query for responsiveness */
@@ -71,4 +73,20 @@ label {
   .selected-university {
     padding: 15px;
   }
+}
+/* Add this to your finduniversity.component.css */
+
+/* Button styling */
+.show-all-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.show-all-button:hover {
+  background-color: #2980b9;
 }

@@ -13,12 +13,12 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
 }
 
 .service:hover {
     transform: scale(1.10);
-    background: linear-gradient(90deg, #da70d6, #00fa9a)
-
+    background: linear-gradient(90deg, #da70d6, #00fa9a);
 }
 
 img {
@@ -34,12 +34,12 @@ img {
 
 @media screen and (max-width: 768px) {
     .service {
-        width: calc(100% - 40px); /* Adjusted width for smaller screens */
+        width: calc(100% - 40px);
     }
 }
 
 @media screen and (min-width: 1200px) {
     .service {
-        width: 250px; /* Adjusted width for larger screens */
+        width: calc(25.33% - 40px); /* Adjusted width for larger screens */
     }
 }
