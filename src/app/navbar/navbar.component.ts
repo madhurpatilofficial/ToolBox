@@ -1,7 +1,6 @@
 // navbar.component.ts
 
 import { Component, HostListener, OnInit } from '@angular/core';
-import { and } from 'mathjs';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +8,7 @@ import { and } from 'mathjs';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  isMenuVisible = false; // Ensure it is initially set to false
+  isMenuVisible = false;
   menuIconActive = false;
 
   constructor() { }
@@ -30,8 +29,7 @@ export class NavbarComponent implements OnInit {
     this.checkScreenSize();
   }
 
-
   private checkScreenSize() {
-    this.isMenuVisible = window.innerWidth > 1600;
+    this.isMenuVisible = window.innerWidth <= 600;
   }
 }

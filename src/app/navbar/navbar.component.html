@@ -8,26 +8,23 @@
 </head>
 
 <body>
-<!-- navbar.component.html -->
+    <!-- navbar.component.html -->
 
-<nav>
-    <div class="brand">ToolBox</div>
-    <div class="menu-icon" [class.active]="menuIconActive" (click)="toggleMenu()">☰</div>
-    <ul *ngIf="!isMenuVisible">
-        <li><a routerLink="" routerLinkActive="active">Home</a></li>
-        <li><a routerLink="calculator" routerLinkActive="active">Calculator</a></li>
-        <li><a routerLink="currencyconverter" routerLinkActive="active">Currency Converter</a></li>
-        <li><a routerLink="findcapital" routerLinkActive="active">Find Capital</a></li>
-        <li><a routerLink="colorpicker" routerLinkActive="active">Color Picker</a></li>
-        <li><a routerLink="findflag" routerLinkActive="active">Find Flag</a></li>
-        <li><a routerLink="finduniversity" routerLinkActive="active">Find University</a></li>
+    <nav>
+        <div class="brand">ToolBox</div>
+        <div class="menu-icon" [class.active]="menuIconActive" (click)="toggleMenu()">☰</div>
+        <ul *ngIf="!isMenuVisible">
+            <li><a routerLink="" routerLinkActive="active">Home</a></li>
+            <li><a routerLink="calculator" routerLinkActive="active">Calculator</a></li>
+            <li><a routerLink="currencyconverter" routerLinkActive="active">Currency Converter</a></li>
+            <li><a routerLink="findcapital" routerLinkActive="active">Find Capital</a></li>
+            <li><a routerLink="colorpicker" routerLinkActive="active">Color Picker</a></li>
+            <li><a routerLink="findflag" routerLinkActive="active">Find Flag</a></li>
+            <li><a routerLink="finduniversity" routerLinkActive="active">Find Universities</a></li>
 
+        </ul>
+    </nav>
 
-    
-    </ul>
-</nav>
-
-    
     <router-outlet></router-outlet>
 </body>
 
