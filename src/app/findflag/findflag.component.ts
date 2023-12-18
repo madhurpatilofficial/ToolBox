@@ -90,7 +90,6 @@ export class FindflagComponent implements OnInit {
     { value: 'Honduras', display: 'Honduras' },
     { value: 'Hungary', display: 'Hungary' },
     { value: 'Iceland', display: 'Iceland' },
-    { value: 'India', display: 'India' },
     { value: 'Indonesia', display: 'Indonesia' },
     { value: 'Iran', display: 'Iran' },
     { value: 'Iraq', display: 'Iraq' },
