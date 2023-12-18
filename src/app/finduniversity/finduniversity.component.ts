@@ -19,7 +19,6 @@ export class FinduniversityComponent implements OnInit {
   ngOnInit(): void {
     this.universityService.getUniversities().subscribe(
       (universities) => {
-        // Add the Dhole Patil College of Engineering to the list
         this.universities = [
           ...universities,
           {
