@@ -7,6 +7,7 @@ import { CurrencyconverterComponent } from './components/currencyconverter/curre
 import { ColorDisplayComponent } from './components/color-display/color-display.component';
 import { FindflagComponent } from './components/findflag/findflag.component';
 import { WorldClockComponent } from './components/world-clock/world-clock.component';
+import { FinduniversityComponent } from './components/finduniversity/finduniversity.component';
 
 const routes: Routes = [
   {

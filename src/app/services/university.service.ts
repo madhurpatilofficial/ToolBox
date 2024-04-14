@@ -8,7 +8,7 @@ import { University } from '../constants/university.model';
   providedIn: 'root',
 })
 export class UniversityService {
-  private apiUrl = 'http://universities.hipolabs.com/search?country=india';
+  private apiUrl = 'https://universities.hipolabs.com/search?country=india';
 
   constructor(private http: HttpClient) {}
 
