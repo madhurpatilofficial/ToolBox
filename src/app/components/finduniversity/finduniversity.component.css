@@ -1,0 +1,92 @@
+/* finduniversity.component.css */
+
+/* Container styling */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header styling */
+h2 {
+  color: #3498db;
+}
+
+/* Dropdown styling */
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#universityDropdown {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #3498db;
+  border-radius: 5px;
+  background-color: #ecf0f1;
+  color: #555;
+  font-size: 16px;
+}
+
+/* Selected university styling */
+.selected-university {
+  margin-top: 20px;
+  border: 1px solid #3498db;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.selected-university h3 {
+  color: #3498db;
+}
+
+.selected-university p {
+  color: #555;
+}
+
+.selected-university a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.selected-university a:hover {
+  text-decoration: underline;
+}
+
+/* No universities found message */
+.no-universities {
+  color: #1cf119;
+  text-align: center;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+/* Media query for responsiveness */
+@media screen and (max-width: 600px) {
+  #universityDropdown {
+    font-size: 14px;
+  }
+
+  .selected-university {
+    padding: 15px;
+  }
+}
+/* Add this to your finduniversity.component.css */
+
+/* Button styling */
+.show-all-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.show-all-button:hover {
+  background-color: #2980b9;
+}

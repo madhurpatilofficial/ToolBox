@@ -1,0 +1,116 @@
+/* world-clock.component.css */
+
+.world-clock {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 20px;
+}
+
+h2 {
+  color: #333;
+}
+
+.select {
+  border-radius: 8px;
+}
+
+p {
+  margin-top: 1rem;
+}
+
+select {
+  padding: 8px;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.clock-container {
+  position: relative;
+}
+
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: inline-block;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(219, 219, 219, 1) 100%);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.hour-markers,
+.minute-markers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.hour-marker,
+.minute-marker {
+  position: absolute;
+  width: 2px;
+  background-color: #333;
+  top: 50%;
+  left: 50%;
+  transform-origin: 50% 0;
+}
+
+.hour-marker {
+  height: 15px;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.minute-marker {
+  height: 7px;
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* world-clock.component.css */
+
+.hour-hand,
+.minute-hand,
+.second-hand {
+  position: absolute;
+  background: #333;
+  transform-origin: bottom center;
+  /* Adjusted transform origin to bottom center */
+  transition: transform 0.5s ease-in-out;
+}
+
+.hour-hand {
+  height: 40px;
+  width: 6px;
+  top: 32px;
+  /* Adjusted top position */
+  left: 97px;
+  border-radius: 3px;
+}
+
+.minute-hand {
+  height: 60px;
+  width: 4px;
+  top: 20px;
+  /* Adjusted top position */
+  left: 98px;
+  border-radius: 2px;
+}
+
+.second-hand {
+  height: 70px;
+  width: 2px;
+  top: 10px;
+  /* Adjusted top position */
+  left: 99px;
+}
+
+
+.timezone {
+  color: #666;
+}
+
+.year {
+  font-size: 18px;
+  margin-bottom: 10px;
+}

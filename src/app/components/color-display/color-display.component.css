@@ -1,0 +1,77 @@
+/* color-display.component.css */
+.color-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.color-section {
+  margin: 20px;
+}
+
+.color-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.color-box, .gradient-box {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.color-box div, .gradient-box div {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.gradient-colors {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gradient-box {
+  width: 200px;
+  height: 100px;
+}
+
+.color-formats {
+  position: fixed;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.9); /* Adjust the last value for opacity (0.9 for 90% opacity) */
+}
+
+.close-button {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+}
+
+.color-container::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  display: none;
+}
+
+.color-formats:target,
+.color-container:target::after {
+  display: block;
+}

@@ -1,0 +1,11 @@
+<!-- findcapital.component.html -->
+<div class="find-capital-container">
+  <label for="countrySelect">Select a Country:</label>
+  <select id="countrySelect" [(ngModel)]="selectedCountry" (change)="onCountrySelected()" aria-label="Select a country">
+    <option value="" disabled>Select a country</option>
+    <option *ngFor="let country of countryNames" [value]="country">{{ country }}</option>
+  </select>
+
+  <div *ngIf="error" class="error-message">{{ error }}</div>
+  <div *ngIf="capital" class="result">Capital: {{ capital }}</div>
+</div>

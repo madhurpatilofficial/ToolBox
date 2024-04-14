@@ -1,0 +1,44 @@
+<!-- finduniversity.component.html -->
+<div class="container" *ngIf="universities.length > 0">
+  <h2>List of Universities in India</h2>
+
+  <!-- Dropdown with search -->
+  <label for="universityDropdown">Select a University:</label>
+  <div class="input-group">
+    <input
+      id="universityDropdown"
+      class="form-control"
+      [(ngModel)]="selectedUniversityName"
+      type="text"
+      placeholder="Search for a university"
+      (ngModelChange)="onSearchChange($event)"
+    />
+  </div>
+
+  <!-- Display filtered universities -->
+  <div *ngIf="filteredUniversities.length > 0" class="dropdown">
+    <div *ngFor="let university of filteredUniversities" class="dropdown-item" (click)="onUniversitySelected(university.name)">
+      {{ university.name }}
+    </div>
+  </div>
+
+  <!-- Button to show all universities -->
+  <button class="show-all-button" (click)="showAllUniversities()">Show All Universities</button>
+
+  <!-- Display all universities in a dropdown -->
+  <div *ngIf="showAll" class="dropdown">
+    <div *ngFor="let university of universities" class="dropdown-item" (click)="onUniversitySelected(university.name)">
+      {{ university.name }}
+    </div>
+  </div>
+
+  <!-- Display selected university information -->
+  <div *ngIf="selectedUniversity" class="selected-university">
+    <h3>{{ selectedUniversity.name }}</h3>
+    <p>{{ selectedUniversity.description }}</p>
+    <p>Website: <a href="{{ selectedUniversity.web_pages[0] }}" target="_blank">{{ selectedUniversity.web_pages[0] }}</a></p>
+  </div>
+</div>
+<div class="container no-universities" *ngIf="universities.length === 0">
+  <p>Fetching Data!!!!</p>
+</div>

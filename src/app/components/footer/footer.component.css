@@ -1,0 +1,23 @@
+/* footer.component.css */
+
+.footer {
+    background: linear-gradient(90deg, #00bfff, #da70d6);
+    padding: 0px;
+    text-align: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #000000; /* Set text color to white or a suitable contrast */
+  }
+  
+  a{
+    color: black;
+  }
+  p{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0px;
+  }

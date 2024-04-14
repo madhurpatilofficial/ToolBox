@@ -1,0 +1,45 @@
+.home-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.service {
+    width: 300px;
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.service:hover {
+    transform: scale(1.10);
+    background: linear-gradient(90deg, #da70d6, #00fa9a);
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.service-info {
+    margin-top: 15px;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .service {
+        width: calc(100% - 40px);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .service {
+        width: calc(25.33% - 40px); /* Adjusted width for larger screens */
+    }
+}
