@@ -3,7 +3,7 @@
 .world-clock {
   font-family: Arial, sans-serif;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 70px;
 }
 
 h2 {
@@ -11,8 +11,24 @@ h2 {
 }
 
 .select {
+  padding: 8px 16px;
+  font-size: 16px;
+  border: 1px solid #ccc;
   border-radius: 8px;
+  margin-bottom: 16px;
 }
+
+/* Style for the options within the dropdown */
+.select option {
+  padding: 8px 16px;
+  font-size: 16px;
+}
+
+/* Style for the selected option */
+.select option:checked {
+  background-color: #e2e2e2;
+}
+
 
 p {
   margin-top: 1rem;
@@ -34,7 +50,7 @@ select {
   height: 200px;
   border-radius: 50%;
   display: inline-block;
-  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(219, 219, 219, 1) 100%);
+  background: linear-gradient(135deg, #4CAF50 0%, #2196F3 100%);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -69,21 +85,21 @@ select {
 
 /* world-clock.component.css */
 
+/* world-clock.component.css */
+
 .hour-hand,
 .minute-hand,
 .second-hand {
   position: absolute;
   background: #333;
-  transform-origin: bottom center;
-  /* Adjusted transform origin to bottom center */
+  transform-origin: 50% 100%; /* Adjusted transform origin */
   transition: transform 0.5s ease-in-out;
 }
 
 .hour-hand {
   height: 40px;
   width: 6px;
-  top: 32px;
-  /* Adjusted top position */
+  top: 65px; /* Adjusted top position */
   left: 97px;
   border-radius: 3px;
 }
@@ -91,8 +107,7 @@ select {
 .minute-hand {
   height: 60px;
   width: 4px;
-  top: 20px;
-  /* Adjusted top position */
+  top: 50px; /* Adjusted top position */
   left: 98px;
   border-radius: 2px;
 }
@@ -100,11 +115,9 @@ select {
 .second-hand {
   height: 70px;
   width: 2px;
-  top: 10px;
-  /* Adjusted top position */
+  top: 45px; /* Adjusted top position */
   left: 99px;
 }
-
 
 .timezone {
   color: #666;
