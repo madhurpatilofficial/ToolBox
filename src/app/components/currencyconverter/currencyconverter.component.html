@@ -1,5 +1,5 @@
 <!-- currencyconverter.component.html -->
-<div>
+<div style="margin-top: 5rem;">
     <label for="fromCurrency">From Currency:</label>
     <select id="fromCurrency" [(ngModel)]="fromCurrency" (change)="convert()">
       <option *ngFor="let currency of conversionRates | keyvalue" [value]="currency.key">
