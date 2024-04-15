@@ -50,7 +50,7 @@ select {
   height: 200px;
   border-radius: 50%;
   display: inline-block;
-  background: linear-gradient(135deg, #15dd1b 0%, #d3067d 100%);
+  background: linear-gradient(135deg, #3bf341 0%, #fd39ab 100%);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 

@@ -32,6 +32,11 @@ img {
     text-align: center;
 }
 
+p{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
 @media screen and (max-width: 768px) {
     .service {
         width: calc(100% - 40px);
