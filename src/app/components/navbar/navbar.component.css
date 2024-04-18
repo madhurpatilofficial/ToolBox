@@ -35,6 +35,7 @@ nav .brand {
     font-size: 2.5em;
     display: flex;
     align-items: center;
+    margin-left: 3rem;
 }
 
 nav ul {
@@ -107,6 +108,7 @@ nav a:hover {
 
     .menu-icon {
         display: block;
+        margin: 5px;
     }
 
     .menu-icon.active+ul {
