@@ -8,6 +8,7 @@ import { ColorDisplayComponent } from './components/color-display/color-display.
 import { FindflagComponent } from './components/findflag/findflag.component';
 import { WorldClockComponent } from './components/world-clock/world-clock.component';
 import { FinduniversityComponent } from './components/finduniversity/finduniversity.component';
+import { AgeCalculatorComponent } from './components/age-calculator/age-calculator.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'calculator',
     component: CalculatorComponent
+  },
+  {
+    path: 'age-calculator',
+    component: AgeCalculatorComponent
   },
   {
     path: 'currencyconverter',

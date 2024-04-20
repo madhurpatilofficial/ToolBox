@@ -17,6 +17,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
 import { WorldClockComponent } from './components/world-clock/world-clock.component';
 import { WorldTimeService } from './services/world-service.service';
+import { AgeCalculatorComponent } from './components/age-calculator/age-calculator.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -30,14 +37,21 @@ import { WorldTimeService } from './services/world-service.service';
     FindflagComponent,
     FinduniversityComponent,
     FooterComponent,
-    WorldClockComponent
+    WorldClockComponent,
+    AgeCalculatorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
   ],
   providers: [UniversityService, WorldTimeService],
   bootstrap: [AppComponent]
