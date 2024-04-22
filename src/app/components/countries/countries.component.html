@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="chart-section">
+    <div class="select-container">
+      <select [(ngModel)]="selectedCountryCode">
+        <option value="" disabled>Select a country</option>
+        <option *ngFor="let country of countries" [value]="country.cca2">{{ country.name.common }}</option>
+      </select>
+      <button (click)="fetchCountryPopulation()">Get Population</button>
+    </div>
+
+    <div *ngIf="countryPopulation !== undefined" class="result-container">
+      Population of {{ selectedCountryName }}: {{ countryPopulation | number }}
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <select [(ngModel)]="chartType" (change)="renderChart()" style="margin-left: 1rem;">
+      <option value="bar">Bar Chart</option>
+      <option value="pie">Pie Chart</option>
+      <!-- Add options for other chart types -->
+    </select>
+
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <div class="population-section">
+    <div class="top-population">
+      <h2>Top 5 Countries with High Population</h2>
+      <ul>
+        <li *ngFor="let country of top5HighPopulation" class="country-item">
+          <span class="country-name">{{ country.name.common }}</span>
+          <span class="country-population">{{ country.population | number }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="low-population">
+      <h2>Top 5 Countries with Low Population</h2>
+      <ul>
+        <li *ngFor="let country of top5LowPopulation" class="country-item">
+          <span class="country-name">{{ country.name.common }}</span>
+          <span class="country-population">{{ country.population | number }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

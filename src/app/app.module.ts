@@ -23,6 +23,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { CountriesComponent } from './components/countries/countries.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     FooterComponent,
     WorldClockComponent,
     AgeCalculatorComponent,
+    CountriesComponent,
   ],
   imports: [
     BrowserModule,
