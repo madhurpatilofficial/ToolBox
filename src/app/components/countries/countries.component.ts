@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart, PluginOptionsByType, registerables } from 'chart.js';
 import 'chartjs-plugin-gradient';
 import { CountryServiceService } from 'src/app/services/country-service.service';
@@ -28,10 +28,24 @@ export class CountriesComponent implements OnInit {
 
   top5HighPopulation: any[] = [];
   top5LowPopulation: any[] = [];
+  additionalInfo: any = {};
+  @ViewChild('populationChart') populationChart!: ElementRef;
+  isPopulationGraphModalOpen: boolean = false;
 
 
   constructor(private countryService: CountryServiceService) {
     Chart.register(...registerables);
+  }
+
+  openPopulationGraphModal() {
+    this.isPopulationGraphModalOpen = true;
+    // Render the population graph when the modal is opened
+    this.renderPopulationChart();
+  }
+
+  // Function to close the population graph modal
+  closePopulationGraphModal() {
+    this.isPopulationGraphModalOpen = false;
   }
 
   ngOnInit() {
@@ -45,6 +59,39 @@ export class CountriesComponent implements OnInit {
         this.errorMessage = 'Error fetching countries. Please try again.';
       });
     this.fetchCountryPopulation();
+    this.renderPopulationChart();
+  }
+
+  renderPopulationChart(): void {
+    this.countryService.getAllCountries()
+      .subscribe(countries => {
+        const labels = countries.map(country => country.name.common);
+        const populations = countries.map(country => country.population);
+
+        const ctx = this.populationChart.nativeElement.getContext('2d');
+        if (ctx) {
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: 'Population',
+                data: populations,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+        }
+      });
   }
 
   fetchCountryPopulation() {
@@ -60,6 +107,9 @@ export class CountriesComponent implements OnInit {
 
         // Start blinking after fetching population data
         this.toggleBlinking();
+
+        // Fetch additional information for the selected country
+        this.additionalInfo = this.countries.find(country => country.cca2 === this.selectedCountryCode);
       }, error => {
         console.error('Error fetching population:', error);
         this.errorMessage = 'Error fetching population. Please try again.';
@@ -77,7 +127,6 @@ export class CountriesComponent implements OnInit {
       chartSection.classList.add('show-border'); // Add the "show-border" class to show the border around the chart
     }
   }
-
 
   renderChart() {
     const ctx = document.getElementById('myChart') as HTMLCanvasElement;
@@ -167,4 +216,25 @@ export class CountriesComponent implements OnInit {
       .sort((a, b) => a.population - b.population)
       .slice(0, 5);
   }
+
+  getCountryInfo(field: string): any {
+    if (this.additionalInfo && this.additionalInfo[field]) {
+      if (field === 'currencies') {
+        const currencies = this.additionalInfo[field];
+        const currencyNames = Object.values(currencies).map((currency: any) => currency.name);
+        return currencyNames.join(', ');
+      } else if (field === 'flags' || field === 'coatOfArms') {
+        return this.additionalInfo[field]?.png;
+      } else if (typeof this.additionalInfo[field] === 'object') {
+        return Object.values(this.additionalInfo[field]).join(', ');
+      } else {
+        return this.additionalInfo[field];
+      }
+    } else {
+      return 'N/A';
+    }
+  }
+
+
+
 }

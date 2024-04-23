@@ -39,7 +39,7 @@
 }
 
 .select-container {
-  margin-top: 15px;
+  margin-top: 20px;
   margin-left: 15px;
 }
 
@@ -65,6 +65,7 @@ canvas {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  margin-top: 26px;
   margin-right: 10px;
 }
 
@@ -159,4 +160,111 @@ canvas {
 .blinking {
   animation: blink 1s infinite;
   color: #ff0000;
+}
+
+.additional-info {
+  margin-top: 20px;
+  border: 1px solid;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left-color: #007bff;
+  border-right-color: red;
+  border-top-color: green;
+  border-bottom-color: #666;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-right: 15px;
+}
+
+.additional-info h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.additional-info p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.additional-info strong {
+  font-weight: bold;
+}
+
+
+
+
+/* Styles for the modal */
+.modal {
+  display: none;
+  /* Hide the modal by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  /* Enable scrolling if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fefefe;
+  margin-left: 30%;
+  margin-top: 5rem;
+  padding: 10px;
+  border: 1px solid #888;
+  width: 40%;
+}
+
+/* Close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Show the modal when its state is true */
+.show {
+  display: block;
+}
+
+
+
+
+.additional-info-wrapper {
+  margin-top: 20px;
+}
+
+.additional-info {
+  border: 1px solid;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left-color: #007bff;
+  border-right-color: red;
+  border-top-color: green;
+  border-bottom-color: #666;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 10px;
+}
+
+.info-column {
+  padding: 10px;
 }
