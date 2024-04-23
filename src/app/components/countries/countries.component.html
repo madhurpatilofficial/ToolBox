@@ -8,11 +8,11 @@
       <button (click)="fetchCountryPopulation()">Get Population</button>
     </div>
 
-    <div *ngIf="countryPopulation !== undefined" class="result-container">
+    <div *ngIf="countryPopulation !== undefined" class="result-container" [ngClass]="{'blinking': isBlinking}">
       Population of {{ selectedCountryName }}: {{ countryPopulation | number }}
     </div>
 
-    <div *ngIf="errorMessage" class="error-message">
+    <div *ngIf="!errorMessage" class="error-message">
       {{ errorMessage }}
     </div>
 
@@ -20,9 +20,7 @@
       <option value="bar">Bar Chart</option>
       <option value="pie">Pie Chart</option>
     </select>
-
     <canvas id="myChart" width="100" height="100" class="canvas"></canvas>
-
   </div>
 
   <div class="population-section">
@@ -46,5 +44,4 @@
       </div>
     </div>
   </div>
-
 </div>

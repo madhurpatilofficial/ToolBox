@@ -13,10 +13,11 @@ export class HomeComponent implements OnInit {
   capitalmessage: string = "Discover the capitals of different countries quickly, efficiently and accurately"
   currencymessage: string = "Convert currencies easily with real-time exchange rates from around the world included with all countries"
   calculatormessage: string = "Perform basic and advanced calculations with our user-friendly calculator"
+  population: string = "Find out the population of the country with data analysis"
+  agecalculator: string = "Find out the age according to your age"
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
-
 }

@@ -44,8 +44,8 @@ export class CountriesComponent implements OnInit {
         console.error('Error fetching countries:', error);
         this.errorMessage = 'Error fetching countries. Please try again.';
       });
+    this.fetchCountryPopulation();
   }
-
 
   fetchCountryPopulation() {
     // Fetch population data for the selected country
@@ -57,11 +57,18 @@ export class CountriesComponent implements OnInit {
         this.errorMessage = undefined;
         this.renderChart();
         this.showBorder(); // Call method to show the border around the chart
+
+        // Start blinking after fetching population data
+        this.toggleBlinking();
       }, error => {
         console.error('Error fetching population:', error);
         this.errorMessage = 'Error fetching population. Please try again.';
         this.countryPopulation = undefined;
       });
+  }
+
+  toggleBlinking() {
+    this.isBlinking = true;
   }
 
   showBorder() {
@@ -143,7 +150,9 @@ export class CountriesComponent implements OnInit {
       }
     });
   }
-  
+
+  isBlinking: boolean = false;
+
   findTop5HighPopulation() {
     this.top5HighPopulation = this.countries
       .filter(country => country.population !== undefined)

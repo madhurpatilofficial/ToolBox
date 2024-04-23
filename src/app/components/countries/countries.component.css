@@ -44,13 +44,15 @@
 }
 
 .result-container {
-  margin-left: 12px;
+  margin-left: 15px;
   margin-top: 13px;
 }
 
 .error-message {
   color: #ff0000;
   margin-bottom: 10px;
+  margin-left: 14px;
+  margin-top: 5px;
 }
 
 canvas {
@@ -138,4 +140,23 @@ canvas {
 
 .card-body {
   padding: 10px;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.blinking {
+  animation: blink 1s infinite;
+  color: #ff0000;
 }
