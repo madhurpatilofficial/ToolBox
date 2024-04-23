@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
@@ -9,6 +10,14 @@ body, html {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+.brand {
+    background: linear-gradient(90deg, hsla(328, 75%, 45%, 1) 0%, hsla(269, 85%, 41%, 1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 3px;
 }
 
 nav {
@@ -29,9 +38,7 @@ nav {
     justify-content: space-between;
 }
 
-
 nav .brand {
-    color: rgb(0, 0, 0);
     font-size: 2.5em;
     display: flex;
     align-items: center;
@@ -39,7 +46,7 @@ nav .brand {
 }
 
 nav ul {
-    font-size:medium;
+    font-size: medium;
     list-style-type: none;
     margin: 0;
     padding: 0;

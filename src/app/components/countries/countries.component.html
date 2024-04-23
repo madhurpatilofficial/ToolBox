@@ -19,31 +19,32 @@
     <select [(ngModel)]="chartType" (change)="renderChart()" style="margin-left: 1rem;">
       <option value="bar">Bar Chart</option>
       <option value="pie">Pie Chart</option>
-      <!-- Add options for other chart types -->
     </select>
 
-    <canvas id="myChart"></canvas>
+    <canvas id="myChart" width="100" height="100" class="canvas"></canvas>
+
   </div>
 
   <div class="population-section">
     <div class="top-population">
       <h2>Top 5 Countries with High Population</h2>
-      <ul>
-        <li *ngFor="let country of top5HighPopulation" class="country-item">
-          <span class="country-name">{{ country.name.common }}</span>
-          <span class="country-population">{{ country.population | number }}</span>
-        </li>
-      </ul>
+      <div class="card-container">
+        <div *ngFor="let country of top5HighPopulation" class="card">
+          <div class="card-header">{{ country.name.common }}</div>
+          <div class="card-body">{{ country.population | number }}</div>
+        </div>
+      </div>
     </div>
 
     <div class="low-population">
       <h2>Top 5 Countries with Low Population</h2>
-      <ul>
-        <li *ngFor="let country of top5LowPopulation" class="country-item">
-          <span class="country-name">{{ country.name.common }}</span>
-          <span class="country-population">{{ country.population | number }}</span>
-        </li>
-      </ul>
+      <div class="card-container">
+        <div *ngFor="let country of top5LowPopulation" class="card">
+          <div class="card-header">{{ country.name.common }}</div>
+          <div class="card-body">{{ country.population | number }}</div>
+        </div>
+      </div>
     </div>
   </div>
+
 </div>
