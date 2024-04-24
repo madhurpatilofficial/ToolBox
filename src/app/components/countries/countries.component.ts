@@ -3,7 +3,6 @@ import { Chart, PluginOptionsByType, registerables } from 'chart.js';
 import 'chartjs-plugin-gradient';
 import { CountryServiceService } from 'src/app/services/country-service.service';
 
-
 interface CustomPluginOptions extends PluginOptionsByType<'bar'> {
   gradient?: {
     start: string;
@@ -24,28 +23,17 @@ export class CountriesComponent implements OnInit {
   countryPopulation: number | undefined;
   errorMessage: string | undefined;
   chartType: string = 'bar';
-  chart: any; // <-- Remove this line
-
+  chart: any;
   top5HighPopulation: any[] = [];
   top5LowPopulation: any[] = [];
   additionalInfo: any = {};
-  @ViewChild('populationChart') populationChart!: ElementRef;
   isPopulationGraphModalOpen: boolean = false;
+  isHiddenInfoVisible: boolean = false;
 
+  @ViewChild('populationChart') populationChart!: ElementRef;
 
   constructor(private countryService: CountryServiceService) {
     Chart.register(...registerables);
-  }
-
-  openPopulationGraphModal() {
-    this.isPopulationGraphModalOpen = true;
-    // Render the population graph when the modal is opened
-    this.renderPopulationChart();
-  }
-
-  // Function to close the population graph modal
-  closePopulationGraphModal() {
-    this.isPopulationGraphModalOpen = false;
   }
 
   ngOnInit() {
@@ -103,12 +91,8 @@ export class CountriesComponent implements OnInit {
         this.selectedCountryName = this.countries.find(country => country.cca2 === this.selectedCountryCode)?.name.common;
         this.errorMessage = undefined;
         this.renderChart();
-        this.showBorder(); // Call method to show the border around the chart
-
-        // Start blinking after fetching population data
+        this.showBorder();
         this.toggleBlinking();
-
-        // Fetch additional information for the selected country
         this.additionalInfo = this.countries.find(country => country.cca2 === this.selectedCountryCode);
       }, error => {
         console.error('Error fetching population:', error);
@@ -117,6 +101,7 @@ export class CountriesComponent implements OnInit {
       });
   }
 
+  isBlinking: boolean = false; // Added isBlinking property
   toggleBlinking() {
     this.isBlinking = true;
   }
@@ -124,7 +109,7 @@ export class CountriesComponent implements OnInit {
   showBorder() {
     const chartSection = document.querySelector('.chart-section');
     if (chartSection) {
-      chartSection.classList.add('show-border'); // Add the "show-border" class to show the border around the chart
+      chartSection.classList.add('show-border');
     }
   }
 
@@ -139,7 +124,6 @@ export class CountriesComponent implements OnInit {
         this.renderBarChart(ctx);
       } else if (this.chartType === 'pie') {
         this.renderPieChart(ctx);
-      } else {
       }
     }
   }
@@ -200,8 +184,6 @@ export class CountriesComponent implements OnInit {
     });
   }
 
-  isBlinking: boolean = false;
-
   findTop5HighPopulation() {
     this.top5HighPopulation = this.countries
       .filter(country => country.population !== undefined)
@@ -209,7 +191,6 @@ export class CountriesComponent implements OnInit {
       .slice(0, 5);
   }
 
-  // Function to find top 5 countries with low population
   findTop5LowPopulation() {
     this.top5LowPopulation = this.countries
       .filter(country => country.population !== undefined)
@@ -235,6 +216,15 @@ export class CountriesComponent implements OnInit {
     }
   }
 
+  openPopulationGraphModal() {
+    this.isPopulationGraphModalOpen = true;
+  }
 
+  closePopulationGraphModal() {
+    this.isPopulationGraphModalOpen = false;
+  }
 
+  toggleHiddenInfo() {
+    this.isHiddenInfoVisible = !this.isHiddenInfoVisible;
+  }
 }

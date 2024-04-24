@@ -21,7 +21,7 @@ html {
 }
 
 nav {
-    background: #00bbf9;
+    background: #16b5ff;
     overflow: hidden;
     display: flex;
     justify-content: space-between;
@@ -56,13 +56,13 @@ nav ul {
     align-items: center;
     justify-content: center;
     border-radius: 12px;
+    
 }
 
 nav li {
     border-radius: 12px;
     font-weight: bold;
     margin: 5px;
-    /* Add some margin around each item for spacing */
     font-weight: normal;
 }
 

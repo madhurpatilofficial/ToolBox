@@ -44,11 +44,11 @@
       </div>
     </div>
 
-
     <div class="additional-info-wrapper">
       <div class="additional-info">
-        <h2>Additional Information <button class="info-button" (click)="openPopulationGraphModal()">Population
-            Graph</button></h2>
+        <h2>Additional Information
+          <button class="info-button" (click)="openPopulationGraphModal()">Population Graph</button>
+        </h2>
         <div *ngIf="selectedCountryCode" class="info-grid">
           <div class="info-column">
             <p><strong>Area:</strong> {{ getCountryInfo('area') }} sq. km</p>
@@ -64,22 +64,22 @@
             <p><strong>Timezones:</strong> {{ getCountryInfo('timezones') }}</p>
             <p><strong>Bordering Countries:</strong> {{ getCountryInfo('borders') }}</p>
           </div>
-        </div>
-      </div>
-    </div>
-    
-
-      <div class="modal" [ngClass]="{'show': isPopulationGraphModalOpen}">
-        <div class="modal-content">
-          <span class="close" (click)="closePopulationGraphModal()">&times;</span>
-          <h2>Population Graph</h2>
-          <div class="chart-container">
-            <canvas #populationChart width="400" height="400"></canvas>
+          <div class="info-column">
+            <p><strong>Region:</strong> {{ additionalInfo.region }}</p>
+            <p><strong>Subregion:</strong> {{ additionalInfo.subregion }}</p>
           </div>
         </div>
       </div>
+    </div>
 
-
-
+    <div class="modal" [ngClass]="{'show': isPopulationGraphModalOpen}">
+      <div class="modal-content">
+        <span class="close" (click)="closePopulationGraphModal()">&times;</span>
+        <h2>Population Graph</h2>
+        <div class="chart-container">
+          <canvas #populationChart width="400" height="400"></canvas>
+        </div>
+      </div>
     </div>
   </div>
+</div>

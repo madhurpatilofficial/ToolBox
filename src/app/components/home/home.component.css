@@ -33,7 +33,7 @@ img {
 
 p{
     font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size: large;
+    font-size:medium;
 }
 
 @media screen and (max-width: 768px) {
@@ -44,6 +44,6 @@ p{
 
 @media screen and (min-width: 1200px) {
     .service {
-        width: calc(25.33% - 40px); /* Adjusted width for larger screens */
+        width: calc(25.33% - 40px);
     }
 }

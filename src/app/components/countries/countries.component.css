@@ -115,7 +115,7 @@ canvas {
 .population-section {
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
+  /* margin-top: 2px; */
 }
 
 .card-container {
@@ -163,7 +163,6 @@ canvas {
 }
 
 .additional-info {
-  margin-top: 20px;
   border: 1px solid;
   padding: 1rem;
   border-radius: 8px;
