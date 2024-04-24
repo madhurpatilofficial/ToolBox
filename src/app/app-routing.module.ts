@@ -7,7 +7,6 @@ import { CurrencyconverterComponent } from './components/currencyconverter/curre
 import { ColorDisplayComponent } from './components/color-display/color-display.component';
 import { FindflagComponent } from './components/findflag/findflag.component';
 import { WorldClockComponent } from './components/world-clock/world-clock.component';
-import { FinduniversityComponent } from './components/finduniversity/finduniversity.component';
 import { AgeCalculatorComponent } from './components/age-calculator/age-calculator.component';
 import { CountriesComponent } from './components/countries/countries.component';
 
@@ -47,7 +46,7 @@ const routes: Routes = [
   {
     path: 'population',
     component: CountriesComponent
-  },
+  }
 ];
 
 @NgModule({

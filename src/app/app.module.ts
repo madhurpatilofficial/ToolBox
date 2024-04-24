@@ -25,7 +25,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CountriesComponent } from './components/countries/countries.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +39,7 @@ import { CountriesComponent } from './components/countries/countries.component';
     FooterComponent,
     WorldClockComponent,
     AgeCalculatorComponent,
-    CountriesComponent,
+    CountriesComponent
   ],
   imports: [
     BrowserModule,
