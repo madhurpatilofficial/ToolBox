@@ -1,26 +1,28 @@
 .home-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 20px auto;
 }
 
 .service {
+    width: calc(33.33% - 40px);
     margin: 20px;
-    padding: 15px;
-    border: 1px solid #ccc;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out;
     box-sizing: border-box;
+    background-color: #f9f9f9;
 }
 
 .service:hover {
-    transform: scale(1.10);
-    background: linear-gradient(90deg, #da70d6, #00fa9a);
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-img {
+.service img {
     width: 100%;
     height: auto;
     border-radius: 8px;
@@ -31,19 +33,24 @@ img {
     text-align: center;
 }
 
-p{
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size:medium;
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1rem;
+    color: #555;
 }
 
 @media screen and (max-width: 768px) {
     .service {
-        width: calc(100% - 40px);
+        width: calc(50% - 40px);
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 480px) {
     .service {
-        width: calc(25.33% - 40px);
+        width: calc(100% - 40px);
     }
 }
