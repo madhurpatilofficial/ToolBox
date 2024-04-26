@@ -24,6 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CountriesComponent } from './components/countries/countries.component';
+import { CharactercountComponent } from './components/charactercount/charactercount.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CountriesComponent } from './components/countries/countries.component';
     FooterComponent,
     WorldClockComponent,
     AgeCalculatorComponent,
-    CountriesComponent
+    CountriesComponent,
+    CharactercountComponent
   ],
   imports: [
     BrowserModule,

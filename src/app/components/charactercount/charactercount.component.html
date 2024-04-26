@@ -1,0 +1,26 @@
+<div class="container">
+    <textarea type="text" class="inputbox" [(ngModel)]="textInput" placeholder="Enter text"></textarea>
+
+    <div>
+        <button (click)="calculateCharacterCounts()" class="count-button">Count Characters</button>
+    </div>
+
+    <div class="result-container">
+        <div class="result-card">
+            <div class="result-title">Total Characters:</div>
+            <div class="result-value">{{ totalCharacters }}</div>
+        </div>
+        <div class="result-card">
+            <div class="result-title">Special Characters:</div>
+            <div class="result-value">{{ specialCharacters }}</div>
+        </div>
+        <div class="result-card">
+            <div class="result-title">Uppercase Characters:</div>
+            <div class="result-value">{{ uppercaseCharacters }}</div>
+        </div>
+        <div class="result-card">
+            <div class="result-title">Lowercase Characters:</div>
+            <div class="result-value">{{ lowercaseCharacters }}</div>
+        </div>
+    </div>
+</div>
