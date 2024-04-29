@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Font Converter</h1>
+    <div>
+      <div>
+        <textarea [(ngModel)]="inputText" placeholder="Type your text here" class="textarea" (input)="convertText()"></textarea>
+      </div>
+      <select [(ngModel)]="selectedFont" class="select">
+        <option *ngFor="let font of fonts" [value]="font">{{ font }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="container" *ngIf="selectedFont">
+    <div class="converted-text" [style.font-family]="selectedFont">
+      {{ convertedText }}
+      <div class="converted-text-buttons">
+        <button (click)="copyConvertedText()">Copy</button>
+      </div>
+    </div>
+  </div>

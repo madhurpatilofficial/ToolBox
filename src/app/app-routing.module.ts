@@ -9,7 +9,7 @@ import { FindflagComponent } from './components/findflag/findflag.component';
 import { WorldClockComponent } from './components/world-clock/world-clock.component';
 import { AgeCalculatorComponent } from './components/age-calculator/age-calculator.component';
 import { CountriesComponent } from './components/countries/countries.component';
-import { CharactercountComponent } from './components/charactercount/charactercount.component';
+import { FontsComponent } from './components/fonts/fonts.component';
 
 const routes: Routes = [
   {
@@ -45,12 +45,12 @@ const routes: Routes = [
     component: WorldClockComponent
   },
   {
-    path: 'charactercount',
-    component: CharactercountComponent
-  },
-  {
     path: 'population',
     component: CountriesComponent
+  },
+  {
+    path: 'fontconverter',
+    component: FontsComponent
   }
 ];
 

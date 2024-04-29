@@ -1,18 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CharactercountComponent } from './charactercount.component';
+import { FontsComponent } from './fonts.component';
 
-describe('CharactercountComponent', () => {
-  let component: CharactercountComponent;
-  let fixture: ComponentFixture<CharactercountComponent>;
+describe('FontsComponent', () => {
+  let component: FontsComponent;
+  let fixture: ComponentFixture<FontsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CharactercountComponent ]
+      declarations: [ FontsComponent ]
     })
     .compileComponents();
+  });
 
-    fixture = TestBed.createComponent(CharactercountComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(FontsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
