@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart, PluginOptionsByType, registerables } from 'chart.js';
 import 'chartjs-plugin-gradient';
-import { CountryServiceService } from 'src/app/services/country-service.service';
+import { CountryServiceService } from '../../services/country-service.service';
 
 interface CustomPluginOptions extends PluginOptionsByType<'bar'> {
   gradient?: {

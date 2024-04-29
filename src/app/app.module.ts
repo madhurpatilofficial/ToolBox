@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -23,6 +22,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CountriesComponent } from './components/countries/countries.component';
 import { FontsComponent } from './components/fonts/fonts.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,8 +37,8 @@ import { FontsComponent } from './components/fonts/fonts.component';
     FooterComponent,
     WorldClockComponent,
     AgeCalculatorComponent,
-    CountriesComponent,
-    FontsComponent
+    FontsComponent,
+    CountriesComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +51,7 @@ import { FontsComponent } from './components/fonts/fonts.component';
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    ReactiveFormsModule,
 
   ],
   providers: [WorldTimeService],
