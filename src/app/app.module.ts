@@ -11,8 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { CurrencyconverterComponent } from './components/currencyconverter/currencyconverter.component';
 import { ColorDisplayComponent } from './components/color-display/color-display.component';
 import { FindflagComponent } from './components/findflag/findflag.component';
-import { FinduniversityComponent } from './components/finduniversity/finduniversity.component';
-import { UniversityService } from './services/university.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './components/footer/footer.component';
 import { WorldClockComponent } from './components/world-clock/world-clock.component';
@@ -36,7 +34,6 @@ import { CharactercountComponent } from './components/charactercount/characterco
     CurrencyconverterComponent,
     ColorDisplayComponent,
     FindflagComponent,
-    FinduniversityComponent,
     FooterComponent,
     WorldClockComponent,
     AgeCalculatorComponent,
@@ -56,7 +53,7 @@ import { CharactercountComponent } from './components/charactercount/characterco
     MatNativeDateModule,
 
   ],
-  providers: [UniversityService, WorldTimeService],
+  providers: [WorldTimeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
