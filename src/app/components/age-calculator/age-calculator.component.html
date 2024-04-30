@@ -4,16 +4,13 @@
       <mat-card-title class="title">Age Calculator</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <mat-form-field appearance="outline">
-        <mat-label>Enter Your Birthdate</mat-label>
-        <input matInput [matDatepicker]="datepicker" [(ngModel)]="birthDate" (ngModelChange)="calculateAge()">
-        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-        <mat-datepicker #datepicker></mat-datepicker>
-      </mat-form-field>
+      <mat-label class="text">Enter Your Birthdate</mat-label>
+      <div class="input-wrapper">
+        <input type="date" id="birthDate" [(ngModel)]="birthDate" (ngModelChange)="calculateAge()" [max]="getMinDate()"
+          [min]="maxDate">
+      </div>
     </mat-card-content>
   </mat-card>
-
-
 
   <mat-card class="result-card">
     <mat-card-header>

@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+import { Subject, of } from 'rxjs';
 
 @Component({
   selector: 'app-findcapital',
@@ -61,18 +61,23 @@ export class FindcapitalComponent implements OnInit {
     }
     
     private fetchCountryData(countryName: string) {
-      console.log('Fetching data for:', countryName);
-      const apiUrl = `https://restcountries.com/v3.1/name/${encodeURIComponent(countryName)}`;
-      return this.http.get<any[]>(apiUrl);
+      if (countryName === 'India/Bharat') {
+        return of([{ capital: 'New Delhi' }]);
+      } else {
+        console.log('Fetching data for:', countryName);
+        const apiUrl = `https://restcountries.com/v3.1/name/${encodeURIComponent(countryName)}`;
+        return this.http.get<any[]>(apiUrl);
+      }
     }
     
-  
     private handleCountryData(data: any[]) {
       console.log('Received data:', data);
       if (Array.isArray(data) && data.length > 0) {
         const countryData = data[0];
-  
-        if ('capital' in countryData) {
+    
+        if (this.selectedCountry === 'India/Bharat') {
+          this.capital = 'New Delhi';
+        } else if ('capital' in countryData) {
           if (Array.isArray(countryData.capital)) {
             this.capital = countryData.capital[0] || 'Capital information not available';
           } else {
@@ -81,13 +86,14 @@ export class FindcapitalComponent implements OnInit {
         } else {
           this.capital = 'Capital information not available';
         }
-  
+    
         this.error = ''; // Clear previous errors
       } else {
         this.capital = '';
         this.error = 'Country information not available for the specified name.';
       }
     }
+    
   
     private handleFetchError(error: any) {
       console.error('Error fetching data:', error);

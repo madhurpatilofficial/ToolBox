@@ -9,11 +9,28 @@
 .card {
   width: 80%;
   max-width: 400px;
-  background-color: #c8e8ff; /* Light blue */
+  background-color: #c8e8ff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   margin-bottom: 20px;
+}
+
+.input-wrapper {
+  position: relative;
+  margin-left: 64px;
+  margin-top: 5px;
+}
+
+.text{
+  margin-left: 113px;
+}
+
+.input-wrapper input[type="date"] {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 8px;
+  width: 200px;
 }
 
 .title {

@@ -8,6 +8,11 @@ import { Component, OnDestroy } from '@angular/core';
 export class AgeCalculatorComponent implements OnDestroy {
   birthDate: Date | undefined;
   age: any = {};
+  maxDate: Date;
+
+  constructor(){
+    this.maxDate = new Date();
+  }
 
   private timer: any;
 
@@ -46,4 +51,9 @@ export class AgeCalculatorComponent implements OnDestroy {
       clearTimeout(this.timer);
     }
   }
+  getMinDate(): string {
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+  }
+  
 }
