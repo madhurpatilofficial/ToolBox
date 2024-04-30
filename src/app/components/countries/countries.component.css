@@ -16,6 +16,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  margin-top: 5px;
 }
 
 #myChart {
@@ -122,6 +123,7 @@ canvas {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  margin-top: 15px;
 }
 
 .card {
