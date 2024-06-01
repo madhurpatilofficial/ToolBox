@@ -14,14 +14,14 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log("Initial isMenuVisible:", this.isMenuVisible);
+    
     this.checkScreenSize();
   }
 
   toggleMenu() {
     this.isMenuVisible = !this.isMenuVisible;
     this.menuIconActive = this.isMenuVisible;
-    console.log("Toggled isMenuVisible:", this.isMenuVisible);
+    
   }
 
   @HostListener('window:resize', ['$event'])
