@@ -8,7 +8,7 @@
     </select>
   
     <label for="amount">Amount:</label>
-    <input type="number" id="amount" [(ngModel)]="amount" (input)="convert()" />
+    <input type="number" id="amount" [(ngModel)]="amount" (input)="validateAmount()" />
   
     <label for="toCurrency">To Currency:</label>
     <select id="toCurrency" [(ngModel)]="toCurrency" (change)="convert()">

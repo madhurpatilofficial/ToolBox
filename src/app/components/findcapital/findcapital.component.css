@@ -14,7 +14,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-image: linear-gradient(45deg, transparent 50%, #182848 50%), linear-gradient(135deg, #182848 50%, transparent 50%);
+    background-image: linear-gradient(45deg, transparent 50%, #314d85 50%), linear-gradient(135deg, #2c4f96 50%, transparent 50%);
     background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
     background-size: 5px 5px, 5px 5px;
     background-repeat: no-repeat;
@@ -46,7 +46,7 @@
     max-width: 400px;
     margin: 40px auto;
     padding: 20px;
-    background: linear-gradient(90deg, hsla(344, 97%, 63%, 1) 0%, hsla(232, 90%, 59%, 1) 100%);
+    background: linear-gradient(90deg, rgb(252, 128, 161) 0%, rgb(154, 167, 253) 100%);
     color: #000000;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

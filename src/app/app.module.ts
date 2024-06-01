@@ -38,7 +38,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     WorldClockComponent,
     AgeCalculatorComponent,
     FontsComponent,
-    CountriesComponent
+    CountriesComponent,
   ],
   imports: [
     BrowserModule,

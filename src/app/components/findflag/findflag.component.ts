@@ -1,8 +1,8 @@
-// findflag.component.ts
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { saveAs } from 'file-saver';
-
+import { debounceTime, distinctUntilChanged, switchMap, catchError, map } from 'rxjs/operators';
+import { Observable, of, Subject } from 'rxjs';
 @Component({
   selector: 'app-findflag',
   templateUrl: './findflag.component.html',
@@ -207,31 +207,42 @@ export class FindflagComponent implements OnInit {
   ];
 
   flagUrl: string = '';
+  private searchTerm$ = new Subject<string>();
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.searchTerm$
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        switchMap(term => this.fetchFlagUrl(term)),
+        catchError(() => of('')) // Error handling
+      )
+      .subscribe(flagUrl => {
+        this.flagUrl = flagUrl;
+      });
   }
 
-  loadFlag(): void {
-    if (this.selectedCountry) {
-      const apiUrl = `https://restcountries.com/v3.1/name/${encodeURIComponent(this.selectedCountry)}`;
-      this.http.get<any[]>(apiUrl).subscribe(
-        (data) => {
-          if (Array.isArray(data) && data.length > 0 && data[0].flags) {
-            this.flagUrl = data[0].flags.png;
-          } else {
-            this.flagUrl = '';
-          }
-        },
-        (error) => {
-          
-          this.flagUrl = '';
-        }
-      );
-    } else {
-      this.flagUrl = '';
+  onCountrySelected(): void {
+    this.searchTerm$.next(this.selectedCountry);
+  }
+
+  private fetchFlagUrl(countryName: string): Observable<string> {
+    if (!countryName) {
+      return of('');
     }
+    
+    const apiUrl = `https://restcountries.com/v3.1/name/${encodeURIComponent(countryName)}`;
+    return this.http.get<any[]>(apiUrl).pipe(
+      map(data => {
+        if (Array.isArray(data) && data.length > 0 && data[0].flags) {
+          return data[0].flags.png;
+        } else {
+          return '';
+        }
+      })
+    );
   }
 
   downloadFlag(): void {
