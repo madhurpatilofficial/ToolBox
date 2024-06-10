@@ -260,7 +260,7 @@ export class CurrencyconverterComponent implements OnInit {
         this.convert();
       },
       (error: any) => {
-        console.error('Error fetching conversion rates', error);
+        
       }
     );
   }

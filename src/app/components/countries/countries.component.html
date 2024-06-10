@@ -3,12 +3,18 @@
     <div class="select-container">
       <select [(ngModel)]="selectedCountryCode">
         <option value="" disabled>Select a country</option>
-        <option *ngFor="let country of countries" [value]="country.cca2">{{ country.name.common }}</option>
+        <option *ngFor="let country of countries" [value]="country.cca2">
+          {{ country.name.common }}
+        </option>
       </select>
       <button (click)="fetchCountryPopulation()">Get Population</button>
     </div>
 
-    <div *ngIf="countryPopulation !== undefined" class="result-container" [ngClass]="{'blinking': isBlinking}">
+    <div
+      *ngIf="countryPopulation !== undefined"
+      class="result-container"
+      [ngClass]="{ blinking: isBlinking }"
+    >
       Population of {{ selectedCountryName }}: {{ countryPopulation | number }}
     </div>
 
@@ -16,7 +22,11 @@
       {{ errorMessage }}
     </div>
 
-    <select [(ngModel)]="chartType" (change)="renderChart()" style="margin-left: 1rem;">
+    <select
+      [(ngModel)]="chartType"
+      (change)="renderChart()"
+      style="margin-left: 1rem"
+    >
       <option value="bar">Bar Chart</option>
       <option value="pie">Pie Chart</option>
     </select>
@@ -46,23 +56,33 @@
 
     <div class="additional-info-wrapper">
       <div class="additional-info">
-        <h2>Additional Information
-          <button class="info-button" (click)="openPopulationGraphModal()">Population Graph</button>
+        <h2>
+          Additional Information
+          <button class="info-button" (click)="openPopulationGraphModal()">
+            Population Graph
+          </button>
         </h2>
         <div *ngIf="selectedCountryCode" class="info-grid">
           <div class="info-column">
-            <p><strong>Area:</strong> {{ getCountryInfo('area') }} sq. km</p>
-            <p><strong>Capital:</strong> {{ getCountryInfo('capital') }}</p>
-            <p><strong>Languages:</strong> {{ getCountryInfo('languages') }}</p>
+            <p><strong>Area:</strong> {{ getCountryInfo("area") }} sq. km</p>
+            <p><strong>Capital:</strong> {{ getCountryInfo("capital") }}</p>
+            <p><strong>Languages:</strong> {{ getCountryInfo("languages") }}</p>
           </div>
           <div class="info-column">
-            <p><strong>Currency:</strong> {{ getCountryInfo('currencies') }}</p>
-            <p><strong>Population:</strong> {{ getCountryInfo('population') }}</p>
-            <p><strong>Continent:</strong> {{ getCountryInfo('continents') }}</p>
+            <p><strong>Currency:</strong> {{ getCountryInfo("currencies") }}</p>
+            <p>
+              <strong>Population:</strong> {{ getCountryInfo("population") }}
+            </p>
+            <p>
+              <strong>Continent:</strong> {{ getCountryInfo("continents") }}
+            </p>
           </div>
           <div class="info-column">
-            <p><strong>Timezones:</strong> {{ getCountryInfo('timezones') }}</p>
-            <p><strong>Bordering Countries:</strong> {{ getCountryInfo('borders') }}</p>
+            <p><strong>Timezones:</strong> {{ getCountryInfo("timezones") }}</p>
+            <p>
+              <strong>Bordering Countries:</strong>
+              {{ getCountryInfo("borders") }}
+            </p>
           </div>
           <div class="info-column">
             <p><strong>Region:</strong> {{ additionalInfo.region }}</p>
@@ -72,7 +92,7 @@
       </div>
     </div>
 
-    <div class="modal" [ngClass]="{'show': isPopulationGraphModalOpen}">
+    <div class="modal" [ngClass]="{ show: isPopulationGraphModalOpen }">
       <div class="modal-content">
         <span class="close" (click)="closePopulationGraphModal()">&times;</span>
         <h2>Population Graph</h2>
