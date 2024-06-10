@@ -1,11 +1,14 @@
-// currencyconverter.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { CurrencyConverterService } from '../../services/currency-converter.service';
 
+// Define CurrencyRate interface
 interface CurrencyRate {
   key: string;
   value: number;
+}
+
+interface CountryNames {
+  [key: string]: string;
 }
 
 @Component({
@@ -14,7 +17,7 @@ interface CurrencyRate {
   styleUrls: ['./currencyconverter.component.css']
 })
 export class CurrencyconverterComponent implements OnInit {
-  conversionRates: { [key: string]: number } = {}; // Store the conversion rates
+  conversionRates: CurrencyRate[] = []; // Updated type to CurrencyRate
   fromCurrency: string = 'USD';
   toCurrency: string = 'INR';
   amount: number = 1;
@@ -248,32 +251,42 @@ export class CurrencyconverterComponent implements OnInit {
     'ZWL': 'Zimbabwe'
   };
 
-
-
-
   constructor(private converterService: CurrencyConverterService) { }
 
   ngOnInit(): void {
+    this.fetchConversionRates();
+  }
+
+  fetchConversionRates(): void {
     this.converterService.getConversionRates().subscribe(
       (data: { rates: any; }) => {
-        this.conversionRates = data.rates;
-        this.convert();
+        if (data && data.rates) {
+          this.conversionRates = data.rates;
+          this.convert(); // Initial conversion
+        }
       },
       (error: any) => {
-        
+        console.error('Error fetching conversion rates:', error);
       }
     );
   }
 
   convert(): void {
-    this.result = this.converterService.convert(this.amount, this.fromCurrency, this.toCurrency, this.conversionRates);
-    if (isNaN(this.result)) {
-      this.result = 0;
+    if (this.conversionRates) {
+      this.result = this.converterService.convert(this.amount, this.fromCurrency, this.toCurrency, this.conversionRates);
+      if (isNaN(this.result)) {
+        this.result = 0;
+      }
     }
   }
 
   getCountryName(currencyCode: string): string {
-    // Use the predefined mapping or fetch from an API/database
     return this.countryNames[currencyCode] || currencyCode;
+  }
+
+  validateAmount(): void {
+    if (this.amount < 0) {
+      this.amount = Math.abs(this.amount);
+    }
   }
 }

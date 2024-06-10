@@ -45,8 +45,8 @@ const routes: Routes = [
     component: WorldClockComponent
   },
   {
-    path: 'population',
-    component: CountriesComponent
+    path: 'population', loadChildren: () => import('./countries.module').then(m => m.CountriesModule)
+
   },
   {
     path: 'fontconverter',
