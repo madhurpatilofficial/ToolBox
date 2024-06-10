@@ -14,7 +14,7 @@ interface CustomPluginOptions extends PluginOptionsByType<'bar'> {
 @Component({
   selector: 'app-root',
   templateUrl: './countries.component.html',
-  styleUrls: ['./countries.component.css'],
+  styleUrls: ['./countries.component.css']
 })
 export class CountriesComponent implements OnInit {
   countries: any[] = [];
@@ -37,79 +37,68 @@ export class CountriesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.countryService.getAllCountries().subscribe(
-      (countries) => {
+    this.countryService.getAllCountries()
+      .subscribe(countries => {
         this.countries = countries;
         this.findTop5HighPopulation();
         this.findTop5LowPopulation();
-      },
-      (error) => {
-        
+      }, error => {
+        console.error('Error fetching countries:', error);
         this.errorMessage = 'Error fetching countries. Please try again.';
-      }
-    );
+      });
     this.fetchCountryPopulation();
     this.renderPopulationChart();
   }
 
   renderPopulationChart(): void {
-    this.countryService.getAllCountries().subscribe((countries) => {
-      const labels = countries.map((country) => country.name.common);
-      const populations = countries.map((country) => country.population);
+    this.countryService.getAllCountries()
+      .subscribe(countries => {
+        const labels = countries.map(country => country.name.common);
+        const populations = countries.map(country => country.population);
 
-      const ctx = this.populationChart.nativeElement.getContext('2d');
-      if (ctx) {
-        new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: labels,
-            datasets: [
-              {
+        const ctx = this.populationChart.nativeElement.getContext('2d');
+        if (ctx) {
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: labels,
+              datasets: [{
                 label: 'Population',
                 data: populations,
                 backgroundColor: 'rgba(75, 192, 192, 0.2)',
                 borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1,
-              },
-            ],
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-              },
+                borderWidth: 1
+              }]
             },
-          },
-        });
-      }
-    });
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true
+                }
+              }
+            }
+          });
+        }
+      });
   }
 
   fetchCountryPopulation() {
     // Fetch population data for the selected country
-    this.countryService
-      .getCountryPopulation(this.selectedCountryCode)
-      .subscribe(
-        (population) => {
-          
-          this.countryPopulation = population;
-          this.selectedCountryName = this.countries.find(
-            (country) => country.cca2 === this.selectedCountryCode
-          )?.name.common;
-          this.errorMessage = undefined;
-          this.renderChart();
-          this.showBorder();
-          this.toggleBlinking();
-          this.additionalInfo = this.countries.find(
-            (country) => country.cca2 === this.selectedCountryCode
-          );
-        },
-        (error) => {
-          
-          this.errorMessage = 'Error fetching population. Please try again.';
-          this.countryPopulation = undefined;
-        }
-      );
+    this.countryService.getCountryPopulation(this.selectedCountryCode)
+      .subscribe(population => {
+        console.log('Population:', population);
+        this.countryPopulation = population;
+        this.selectedCountryName = this.countries.find(country => country.cca2 === this.selectedCountryCode)?.name.common;
+        this.errorMessage = undefined;
+        this.renderChart();
+        this.showBorder();
+        this.toggleBlinking();
+        this.additionalInfo = this.countries.find(country => country.cca2 === this.selectedCountryCode);
+      }, error => {
+        console.error('Error fetching population:', error);
+        this.errorMessage = 'Error fetching population. Please try again.';
+        this.countryPopulation = undefined;
+      });
   }
 
   isBlinking: boolean = false; // Added isBlinking property
@@ -149,23 +138,21 @@ export class CountriesComponent implements OnInit {
       type: 'bar',
       data: {
         labels: [this.selectedCountryName],
-        datasets: [
-          {
-            label: 'Population',
-            data: [this.countryPopulation],
-            backgroundColor: gradient,
-            borderColor: 'rgba(76, 193, 193, 1)',
-            borderWidth: 3,
-          },
-        ],
+        datasets: [{
+          label: 'Population',
+          data: [this.countryPopulation],
+          backgroundColor: gradient,
+          borderColor: 'rgba(76, 193, 193, 1)',
+          borderWidth: 3
+        }]
       },
       options: {
         scales: {
           y: {
-            beginAtZero: true,
-          },
-        },
-      },
+            beginAtZero: true
+          }
+        }
+      }
     });
   }
 
@@ -174,41 +161,39 @@ export class CountriesComponent implements OnInit {
       type: 'pie',
       data: {
         labels: [this.selectedCountryName],
-        datasets: [
-          {
-            label: 'Population',
-            data: [this.countryPopulation],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-            ],
-            borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
-            ],
-            borderWidth: 2,
-          },
-        ],
-      },
+        datasets: [{
+          label: 'Population',
+          data: [this.countryPopulation],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)'
+          ],
+          borderWidth: 2
+        }]
+      }
     });
   }
 
   findTop5HighPopulation() {
     this.top5HighPopulation = this.countries
-      .filter((country) => country.population !== undefined)
+      .filter(country => country.population !== undefined)
       .sort((a, b) => b.population - a.population)
       .slice(0, 5);
   }
 
   findTop5LowPopulation() {
     this.top5LowPopulation = this.countries
-      .filter((country) => country.population !== undefined)
+      .filter(country => country.population !== undefined)
       .sort((a, b) => a.population - b.population)
       .slice(0, 5);
   }
@@ -217,9 +202,7 @@ export class CountriesComponent implements OnInit {
     if (this.additionalInfo && this.additionalInfo[field]) {
       if (field === 'currencies') {
         const currencies = this.additionalInfo[field];
-        const currencyNames = Object.values(currencies).map(
-          (currency: any) => currency.name
-        );
+        const currencyNames = Object.values(currencies).map((currency: any) => currency.name);
         return currencyNames.join(', ');
       } else if (field === 'flags' || field === 'coatOfArms') {
         return this.additionalInfo[field]?.png;

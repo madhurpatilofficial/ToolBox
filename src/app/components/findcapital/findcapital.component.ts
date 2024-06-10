@@ -50,13 +50,13 @@ export class FindcapitalComponent implements OnInit {
       },
       (
         error) => {
-          
+          console.error('Error fetching country names', error);
         }
       );
     }
   
     onCountrySelected(): void {
-      
+      console.log('Selected country:', this.selectedCountry);
       this.searchTerm$.next(this.selectedCountry);
     }
     
@@ -64,14 +64,14 @@ export class FindcapitalComponent implements OnInit {
       if (countryName === 'India/Bharat') {
         return of([{ capital: 'New Delhi' }]);
       } else {
-        
+        console.log('Fetching data for:', countryName);
         const apiUrl = `https://restcountries.com/v3.1/name/${encodeURIComponent(countryName)}`;
         return this.http.get<any[]>(apiUrl);
       }
     }
     
     private handleCountryData(data: any[]) {
-      
+      console.log('Received data:', data);
       if (Array.isArray(data) && data.length > 0) {
         const countryData = data[0];
     
@@ -96,10 +96,10 @@ export class FindcapitalComponent implements OnInit {
     
   
     private handleFetchError(error: any) {
-      
+      console.error('Error fetching data:', error);
       this.capital = '';
       this.error = 'Error fetching data from the API.';
-      
+      console.error(error);
     }
   }
   

@@ -225,7 +225,7 @@ export class FindflagComponent implements OnInit {
           }
         },
         (error) => {
-          
+          console.error('Error fetching country data', error);
           this.flagUrl = '';
         }
       );

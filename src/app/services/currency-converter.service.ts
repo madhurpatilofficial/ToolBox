@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CurrencyConverterService {
-  private apiUrl = 'https://open.er-api.com/v6/latest/USD';
+  private apiUrl = 'https://open.er-api.com/v6/latest/USD'; // Example API, replace with your API
 
   constructor(private http: HttpClient) {}
 
