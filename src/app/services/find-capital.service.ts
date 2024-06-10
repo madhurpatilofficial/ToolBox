@@ -29,7 +29,7 @@ export class FindCapitalService {
         }),
         catchError(error => {
           console.error('Error fetching country names:', error);
-          return of([]); // Return empty array in case of error
+          return of([]);
         })
       );
     }

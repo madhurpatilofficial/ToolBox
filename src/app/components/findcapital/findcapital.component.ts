@@ -27,7 +27,7 @@ export class FindcapitalComponent implements OnInit {
         switchMap((term) => this.findCapitalService.findCapital(term)),
         catchError(error => {
           this.handleFetchError(error);
-          return of([]); // Return empty array to avoid breaking observable chain
+          return of([]);
         })
       )
       .subscribe(
