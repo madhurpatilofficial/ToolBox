@@ -6,12 +6,14 @@ import { Component, OnDestroy } from '@angular/core';
   styleUrls: ['./age-calculator.component.css']
 })
 export class AgeCalculatorComponent implements OnDestroy {
-  birthDate: Date | undefined;
   age: any = {};
+  birthDate: Date | null = null;
   maxDate: Date;
+  minDate: Date;
 
-  constructor(){
+  constructor() {
     this.maxDate = new Date();
+    this.minDate = new Date(1910, 0, 1);
   }
 
   private timer: any;

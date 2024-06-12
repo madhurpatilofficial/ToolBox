@@ -262,11 +262,10 @@ export class CurrencyconverterComponent implements OnInit {
       (data: { rates: any }) => {
         if (data && data.rates) {
           this.conversionRates = data.rates;
-          this.convert(); // Initial conversion
+          this.convert();
         }
       },
       (error: any) => {
-        console.error('Error fetching conversion rates:', error);
       }
     );
   }

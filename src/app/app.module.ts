@@ -23,6 +23,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { CountriesComponent } from './components/countries/countries.component';
 import { FontsComponent } from './components/fonts/fonts.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     WorldClockComponent,
     AgeCalculatorComponent,
     FontsComponent,
-    CountriesComponent,
+    CountriesComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +55,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
 
   ],
-  providers: [WorldTimeService],
+  providers: [WorldTimeService, provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

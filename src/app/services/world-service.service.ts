@@ -15,7 +15,6 @@ export class WorldTimeService {
   getTimeByCountry(countryCode: string): Observable<any> {
     return this.http.get(`https://worldtimeapi.org/api/timezone/${countryCode}`).pipe(
       catchError(error => {
-        console.error('Error fetching time:', error);
         return throwError('Failed to fetch time');
       })
     );

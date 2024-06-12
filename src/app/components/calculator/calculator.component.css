@@ -1,7 +1,7 @@
 .calculator {
   max-width: 400px;
   margin: 20px auto;
-  padding: 20px;
+  padding: 50px;
   background: linear-gradient(90deg, hsla(211, 96%, 62%, 1) 0%, hsla(295, 94%, 76%, 1) 100%);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);

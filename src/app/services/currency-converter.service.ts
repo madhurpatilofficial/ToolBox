@@ -24,7 +24,6 @@ export class CurrencyConverterService {
         return response;
       }),
       catchError(error => {
-        console.error('Error fetching conversion rates:', error);
         return of(null);
       })
     );

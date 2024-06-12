@@ -28,7 +28,6 @@ export class FindCapitalService {
           this.countryNamesCache.unshift('India/Bharat');
         }),
         catchError(error => {
-          console.error('Error fetching country names:', error);
           return of([]);
         })
       );
