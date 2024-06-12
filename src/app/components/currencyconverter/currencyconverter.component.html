@@ -1,20 +1,33 @@
 <!-- currencyconverter.component.html -->
-<div style="margin-top: 5rem;">
-    <label for="fromCurrency">From Currency:</label>
-    <select id="fromCurrency" [(ngModel)]="fromCurrency" (change)="convert()">
-      <option *ngFor="let currency of conversionRates | keyvalue" [value]="currency.key">
-        {{ currency.key }} - {{ getCountryName(currency.key) }}
-      </option>
-    </select>
-  
-    <label for="amount">Amount:</label>
-    <input type="number" id="amount" [(ngModel)]="amount" (input)="validateAmount()" />
-  
-    <label for="toCurrency">To Currency:</label>
-    <select id="toCurrency" [(ngModel)]="toCurrency" (change)="convert()">
-      <option *ngFor="let currency of conversionRates | keyvalue" [value]="currency.key">
-        {{ currency.key }} - {{ getCountryName(currency.key) }}
-      </option>
-    </select>
-  
-    <p>Result: {{ result }}</p>
+<div style="margin-top: 5rem">
+  <label for="fromCurrency">From Currency:</label>
+  <select id="fromCurrency" [(ngModel)]="fromCurrency" (change)="convert()">
+    <option
+      *ngFor="let currency of conversionRates | keyvalue"
+      [value]="currency.key"
+    >
+      {{ currency.key }} - {{ getCountryName(currency.key) }}
+    </option>
+  </select>
+
+  <label for="amount">Amount:</label>
+  <input
+    type="number"
+    id="amount"
+    [(ngModel)]="amount"
+    (input)="validateAmount()"
+    (ngModelChange)="convert()"
+  />
+
+  <label for="toCurrency">To Currency:</label>
+  <select id="toCurrency" [(ngModel)]="toCurrency" (change)="convert()">
+    <option
+      *ngFor="let currency of conversionRates | keyvalue"
+      [value]="currency.key"
+    >
+      {{ currency.key }} - {{ getCountryName(currency.key) }}
+    </option>
+  </select>
+
+  <p>Result: {{ result }}</p>
+</div>
