@@ -82,3 +82,11 @@ select {
 .result {
     background-color: #4caf50; /* Green background for result messages */
 }
+
+.custom-width {
+    width: 400px; /* Adjust the width as needed */
+  }
+  
+  .custom-width .mat-form-field-flex {
+    width: 100%;
+  }

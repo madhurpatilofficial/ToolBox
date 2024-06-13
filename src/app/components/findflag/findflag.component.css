@@ -62,6 +62,15 @@ button:hover {
     background: linear-gradient(to bottom right, #e98b07, #27f67d);
 }
 
+.custom-width {
+    width: 500px; /* Adjust the width as needed */
+  }
+  
+  .custom-width .mat-form-field-flex {
+    width: 100%;
+  }
+
+
 /* Responsive styles */
 @media (max-width: 600px) {
     div {

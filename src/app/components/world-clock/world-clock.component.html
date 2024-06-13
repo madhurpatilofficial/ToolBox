@@ -1,11 +1,12 @@
-<!-- world-clock.component.html -->
-
 <div class="world-clock">
   <h2>World Clock</h2>
-  <select [(ngModel)]="selectedCountryCode" (change)="onCountryChange()" class="select">
-    <option value="">Select a country</option>
-    <option *ngFor="let country of countries" [value]="country.code">{{ country.name }}</option>
-  </select>
+  <mat-form-field appearance="fill" class="custom-width" class="custom-width">
+    <mat-label>Select a country</mat-label>
+    <mat-select [(ngModel)]="selectedCountryCode" (selectionChange)="onCountryChange()">
+      <mat-option value="">Select a country</mat-option>
+      <mat-option *ngFor="let country of countries" [value]="country.code">{{ country.name }}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
   <div *ngIf="currentTime" class="clock-container">
     <p class="year">Year: {{ currentTime.year }}</p>

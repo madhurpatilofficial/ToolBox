@@ -24,6 +24,8 @@ import { CountriesComponent } from './components/countries/countries.component';
 import { FontsComponent } from './components/fonts/fonts.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select'; 
 
 @NgModule({
   declarations: [
@@ -50,10 +52,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     MatInputModule,
     MatCardModule,
     MatFormFieldModule,
+    MatButtonModule,
+    MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-
   ],
   providers: [WorldTimeService, provideAnimationsAsync()],
   bootstrap: [AppComponent]

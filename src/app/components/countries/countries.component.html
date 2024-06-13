@@ -1,13 +1,18 @@
 <div class="container">
   <div class="chart-section">
     <div class="select-container">
-      <select [(ngModel)]="selectedCountryCode">
-        <option value="" disabled>Select a country</option>
-        <option *ngFor="let country of countries" [value]="country.cca2">
-          {{ country.name.common }}
-        </option>
-      </select>
-      <button (click)="fetchCountryPopulation()">Get Population</button>
+      <mat-form-field appearance="fill">
+        <mat-label>Select a country</mat-label>
+        <mat-select
+          [(value)]="selectedCountryCode"
+          (selectionChange)="fetchCountryPopulation()"
+        >
+          <mat-option value="" disabled>Select a country</mat-option>
+          <mat-option *ngFor="let country of countries" [value]="country.cca2">
+            {{ country.name.common }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 
     <div
@@ -22,14 +27,20 @@
       {{ errorMessage }}
     </div>
 
-    <select
-      [(ngModel)]="chartType"
-      (change)="renderChart()"
+    <div
+      class="select-container"
+      *ngIf="selectedCountryCode"
       style="margin-left: 1rem"
     >
-      <option value="bar">Bar Chart</option>
-      <option value="pie">Pie Chart</option>
-    </select>
+      <mat-form-field appearance="fill">
+        <mat-label>Select Chart Type</mat-label>
+        <mat-select [(ngModel)]="chartType" (selectionChange)="renderChart()">
+          <mat-option value="bar">Bar Chart</mat-option>
+          <mat-option value="pie">Pie Chart</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
     <canvas id="myChart" width="100" height="100" class="canvas"></canvas>
   </div>
 
@@ -58,8 +69,12 @@
       <div class="additional-info">
         <h2>
           Additional Information
-          <button class="info-button" (click)="openPopulationGraphModal()">
-            Population Graph
+          <button
+            mat-flat-button
+            color="accent"
+            (click)="openPopulationGraphModal()"
+          >
+            View Graph
           </button>
         </h2>
         <div *ngIf="selectedCountryCode" class="info-grid">

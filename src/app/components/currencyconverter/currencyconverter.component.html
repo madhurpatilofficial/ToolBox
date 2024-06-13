@@ -1,33 +1,38 @@
-<!-- currencyconverter.component.html -->
 <div style="margin-top: 5rem">
-  <label for="fromCurrency">From Currency:</label>
-  <select id="fromCurrency" [(ngModel)]="fromCurrency" (change)="convert()">
-    <option
-      *ngFor="let currency of conversionRates | keyvalue"
-      [value]="currency.key"
-    >
-      {{ currency.key }} - {{ getCountryName(currency.key) }}
-    </option>
-  </select>
+  <mat-form-field appearance="fill" class="custom-width">
+    <mat-label>From Currency</mat-label>
+    <mat-select [(value)]="fromCurrency" (selectionChange)="convert()">
+      <mat-option
+        *ngFor="let currency of conversionRates | keyvalue"
+        [value]="currency.key"
+      >
+        {{ currency.key }} - {{ getCountryName(currency.key) }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
-  <label for="amount">Amount:</label>
-  <input
-    type="number"
-    id="amount"
-    [(ngModel)]="amount"
-    (input)="validateAmount()"
-    (ngModelChange)="convert()"
-  />
+  <mat-form-field appearance="fill" class="custom-width">
+    <mat-label>Amount</mat-label>
+    <input
+      matInput
+      type="number"
+      [(ngModel)]="amount"
+      (input)="validateAmount()"
+      (ngModelChange)="convert()"
+    />
+  </mat-form-field>
 
-  <label for="toCurrency">To Currency:</label>
-  <select id="toCurrency" [(ngModel)]="toCurrency" (change)="convert()">
-    <option
-      *ngFor="let currency of conversionRates | keyvalue"
-      [value]="currency.key"
-    >
-      {{ currency.key }} - {{ getCountryName(currency.key) }}
-    </option>
-  </select>
+  <mat-form-field appearance="fill" class="custom-width">
+    <mat-label>To Currency</mat-label>
+    <mat-select [(value)]="toCurrency" (selectionChange)="convert()">
+      <mat-option
+        *ngFor="let currency of conversionRates | keyvalue"
+        [value]="currency.key"
+      >
+        {{ currency.key }} - {{ getCountryName(currency.key) }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
   <p>Result: {{ result }}</p>
 </div>

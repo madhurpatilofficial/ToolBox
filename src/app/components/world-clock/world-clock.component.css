@@ -5,9 +5,15 @@
 }
 
 h2 {
-  color: #1976D2; /* Dark blue */
+  color: #1976d2; /* Dark blue */
+}
+.custom-width {
+  width: 400px; /* Adjust the width as needed */
 }
 
+.custom-width .mat-form-field-flex {
+  width: 100%;
+}
 .select {
   padding: 8px 16px;
   font-size: 16px;
@@ -93,7 +99,7 @@ h2 {
   top: 50px;
   left: 98px;
   border-radius: 2px;
-  background-color: #1976D2; /* Dark blue */
+  background-color: #1976d2; /* Dark blue */
 }
 
 .second-hand {

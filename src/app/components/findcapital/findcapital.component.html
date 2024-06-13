@@ -1,9 +1,11 @@
 <div class="find-capital-container" style="margin-top: 5rem;">
-  <label for="countrySelect">Select a Country:</label>
-  <select id="countrySelect" [(ngModel)]="selectedCountry" (change)="searchTerm$.next(selectedCountry)" aria-label="Select a country">
-    <option value="" disabled>Select a country</option>
-    <option *ngFor="let country of countryNames" [value]="country">{{ country }}</option>
-  </select>
+  <mat-form-field appearance="fill" class="custom-width">
+    <mat-label>Select a Country</mat-label>
+    <mat-select [(value)]="selectedCountry" (selectionChange)="searchTerm$.next($event.value)">
+      <mat-option value="" disabled>Select a country</mat-option>
+      <mat-option *ngFor="let country of countryNames" [value]="country">{{ country }}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
   <div *ngIf="error" class="error-message">{{ error }}</div>
   <div *ngIf="capital" class="result">Capital: {{ capital }}</div>
