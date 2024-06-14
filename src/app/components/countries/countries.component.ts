@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Chart, PluginOptionsByType, registerables } from 'chart.js';
+import { Chart, ChartType, PluginOptionsByType, registerables } from 'chart.js';
 import 'chartjs-plugin-gradient';
 import { CountryServiceService } from '../../services/country-service.service';
 
@@ -51,38 +51,18 @@ export class CountriesComponent implements OnInit {
     this.renderPopulationChart();
   }
 
-  renderPopulationChart(): void {
-    this.countryService.getAllCountries().subscribe((countries) => {
-      const labels = countries.map((country) => country.name.common);
-      const populations = countries.map((country) => country.population);
-
-      const ctx = this.populationChart.nativeElement.getContext('2d');
-      if (ctx) {
-        new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: labels,
-            datasets: [
-              {
-                label: 'Population',
-                data: populations,
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1,
-              },
-            ],
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true,
-              },
-            },
-          },
-        });
-      }
-    });
-  }
+  colors: string[] = [
+    'rgba(255, 99, 132, 1)',
+    'rgba(54, 162, 235, 1)',
+    'rgba(128, 0, 128, 1)',
+    'rgba(255, 0, 1)',
+    'rgba(75, 192, 192, 1)',
+    'rgba(153, 102, 255, 1)',
+    'rgba(255, 159, 64, 1)',
+    'rgba(0, 255, 1)',
+    'rgba(255, 206, 86, 1)',
+    'rgba(0, 0, 255, 1)',
+  ];
 
   fetchCountryPopulation() {
     // Fetch population data for the selected country
@@ -139,8 +119,8 @@ export class CountriesComponent implements OnInit {
   renderBarChart(ctx: HTMLCanvasElement) {
     const gradient = ctx.getContext('2d')!.createLinearGradient(0, 0, 0, 400);
 
-    gradient.addColorStop(0, '#ff7fff');
-    gradient.addColorStop(1, '#4bc0c0');
+    gradient.addColorStop(0, '#439cfb');
+    gradient.addColorStop(1, '#f187fb');
 
     this.chart = new Chart(ctx, {
       type: 'bar',
@@ -151,8 +131,8 @@ export class CountriesComponent implements OnInit {
             label: 'Population',
             data: [this.countryPopulation],
             backgroundColor: gradient,
-            borderColor: 'rgba(76, 193, 193, 1)',
-            borderWidth: 3,
+            borderColor: '#00000',
+            borderWidth: 2,
           },
         ],
       },
@@ -167,6 +147,10 @@ export class CountriesComponent implements OnInit {
   }
 
   renderPieChart(ctx: HTMLCanvasElement) {
+    const gradient = ctx.getContext('2d')!.createLinearGradient(0, 0, 0, 400);
+
+    gradient.addColorStop(0, '#439cfb');
+    gradient.addColorStop(1, '#f187fb');
     this.chart = new Chart(ctx, {
       type: 'pie',
       data: {
@@ -175,20 +159,8 @@ export class CountriesComponent implements OnInit {
           {
             label: 'Population',
             data: [this.countryPopulation],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-            ],
-            borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
-            ],
+            backgroundColor: gradient,
+            borderColor: '#00000',
             borderWidth: 2,
           },
         ],
@@ -240,5 +212,38 @@ export class CountriesComponent implements OnInit {
 
   toggleHiddenInfo() {
     this.isHiddenInfoVisible = !this.isHiddenInfoVisible;
+  }
+
+  renderPopulationChart(): void {
+    this.countryService.getAllCountries().subscribe((countries) => {
+      const labels = countries.map((country) => country.name.common);
+      const populations = countries.map((country) => country.population);
+
+      const ctx = this.populationChart.nativeElement.getContext('2d');
+      if (ctx) {
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: 'Population',
+                data: populations,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: this.colors.slice(0, populations.length),
+                borderWidth: 3,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      }
+    });
   }
 }

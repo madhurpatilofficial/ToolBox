@@ -23,10 +23,6 @@
       Population of {{ selectedCountryName }}: {{ countryPopulation | number }}
     </div>
 
-    <div *ngIf="!errorMessage" class="error-message">
-      {{ errorMessage }}
-    </div>
-
     <div
       class="select-container"
       *ngIf="selectedCountryCode"
@@ -71,7 +67,7 @@
           Additional Information
           <button
             mat-flat-button
-            color="accent"
+            color="primary"
             (click)="openPopulationGraphModal()"
           >
             View Graph
@@ -106,7 +102,6 @@
         </div>
       </div>
     </div>
-
     <div class="modal" [ngClass]="{ show: isPopulationGraphModalOpen }">
       <div class="modal-content">
         <span class="close" (click)="closePopulationGraphModal()">&times;</span>
@@ -116,5 +111,7 @@
         </div>
       </div>
     </div>
+    
+    
   </div>
 </div>
