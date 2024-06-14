@@ -1,15 +1,21 @@
-
-<div style="margin-top: 5rem;">
+<div style="margin-top: 5rem">
   <mat-form-field appearance="fill" class="custom-width">
     <mat-label>Select a Country</mat-label>
-    <mat-select [(value)]="selectedCountry" (selectionChange)="onCountrySelected()">
+    <mat-select
+      [(value)]="selectedCountry"
+      (selectionChange)="onCountrySelected()"
+    >
       <mat-option value="" disabled>Select a country</mat-option>
-      <mat-option *ngFor="let country of countries" [value]="country.value">{{ country.display }}</mat-option>
+      <mat-option *ngFor="let country of countries" [value]="country.value">{{
+        country.display
+      }}</mat-option>
     </mat-select>
   </mat-form-field>
 
   <div *ngIf="flagUrl">
-    <img [src]="flagUrl" alt="Country Flag">
-    <button mat-raised-button color="primary" (click)="downloadFlag()">Download Flag</button>
+    <img [src]="flagUrl" alt="Country Flag" />
+    <button mat-raised-button color="primary" (click)="downloadFlag()">
+      Download Flag
+    </button>
   </div>
 </div>

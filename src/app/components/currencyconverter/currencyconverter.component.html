@@ -1,34 +1,22 @@
-<div style="margin-top: 5rem">
-  <mat-form-field appearance="fill" class="custom-width">
+<div class="currency-converter">
+  <mat-form-field appearance="fill" class="custom-width" [ngClass]="{'mobile-width': isMobile}">
     <mat-label>From Currency</mat-label>
     <mat-select [(value)]="fromCurrency" (selectionChange)="convert()">
-      <mat-option
-        *ngFor="let currency of conversionRates | keyvalue"
-        [value]="currency.key"
-      >
+      <mat-option *ngFor="let currency of conversionRates | keyvalue" [value]="currency.key">
         {{ currency.key }} - {{ getCountryName(currency.key) }}
       </mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="custom-width">
+  <mat-form-field appearance="fill" class="custom-width" [ngClass]="{'mobile-width': isMobile}">
     <mat-label>Amount</mat-label>
-    <input
-      matInput
-      type="number"
-      [(ngModel)]="amount"
-      (input)="validateAmount()"
-      (ngModelChange)="convert()"
-    />
+    <input matInput type="number" [(ngModel)]="amount" (input)="validateAmount()" (ngModelChange)="convert()" />
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="custom-width">
+  <mat-form-field appearance="fill" class="custom-width" [ngClass]="{'mobile-width': isMobile}">
     <mat-label>To Currency</mat-label>
     <mat-select [(value)]="toCurrency" (selectionChange)="convert()">
-      <mat-option
-        *ngFor="let currency of conversionRates | keyvalue"
-        [value]="currency.key"
-      >
+      <mat-option *ngFor="let currency of conversionRates | keyvalue" [value]="currency.key">
         {{ currency.key }} - {{ getCountryName(currency.key) }}
       </mat-option>
     </mat-select>

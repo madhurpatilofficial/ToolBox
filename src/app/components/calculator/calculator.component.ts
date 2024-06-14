@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 interface CalculatorButton {
   label: string;
@@ -13,6 +13,7 @@ interface CalculatorButton {
 export class CalculatorComponent implements OnInit {
   result: string = '';
   currentInput: string = '';
+  isSmallScreen: boolean | undefined;
 
   calculatorButtons: CalculatorButton[] = [
     { label: '7', value: '7' },
@@ -36,8 +37,19 @@ export class CalculatorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.checkScreenSize();
   }
 
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.checkScreenSize();
+  }
+
+  checkScreenSize() {
+    this.isSmallScreen = window.innerWidth <= 600; // Adjust this value as needed
+  }
+  
   handleButtonClick(value: string): void {
     if (value === '=') {
       this.calculateResult();

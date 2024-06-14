@@ -1,92 +1,120 @@
 .select-wrapper {
-    position: relative;
-    width: 100%;
-    margin-bottom: 20px; /* Adjusted margin to avoid unnecessary spacing */
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .select-wrapper select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    color: #333;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-image: linear-gradient(45deg, transparent 50%, #314d85 50%), linear-gradient(135deg, #2c4f96 50%, transparent 50%);
-    background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
-    background-size: 5px 5px, 5px 5px;
-    background-repeat: no-repeat;
-    cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #314d85 50%),
+    linear-gradient(135deg, #2c4f96 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .select-wrapper::after {
-    content: '\25BC'; /* Unicode character for down arrow */
-    font-size: 16px;
-    color: #555;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    pointer-events: none;
+  content: "\25BC"; /* Unicode character for down arrow */
+  font-size: 16px;
+  color: #555;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 /* Style for when the dropdown is open */
-.select-wrapper select:active, .select-wrapper select:focus {
-    outline: none;
-    border-color: #297ACC; /* Change border color on focus */
-    background-image: linear-gradient(45deg, transparent 50%, #182848 50%), linear-gradient(135deg, #182848 50%, transparent 50%);
-    background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em;
-    background-size: 5px 5px, 5px 5px;
-    background-repeat: no-repeat;
+.select-wrapper select:active,
+.select-wrapper select:focus {
+  outline: none;
+  border-color: #297acc; /* Change border color on focus */
+  background-image: linear-gradient(45deg, transparent 50%, #182848 50%),
+    linear-gradient(135deg, #182848 50%, transparent 50%);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
 }
 
 .find-capital-container {
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 20px;
-    background: linear-gradient(90deg, rgb(252, 128, 161) 0%, rgb(154, 167, 253) 100%);
-    color: #000000;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-weight: bold;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: linear-gradient(
+    90deg,
+    rgb(252, 128, 161) 0%,
+    rgb(154, 167, 253) 100%
+  );
+  color: #000000;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
 }
 
 label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    color: #333;
-    margin-bottom: 20px;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-.error-message, .result {
-    margin-top: 15px;
-    padding: 10px;
-    border-radius: 4px;
+.error-message,
+.result {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 4px;
 }
 
 .error-message {
-    background-color: #ff5c5c; /* Red background for error messages */
+  background-color: #ff5c5c; /* Red background for error messages */
 }
 
 .result {
-    background-color: #4caf50; /* Green background for result messages */
+  background-color: #4caf50; /* Green background for result messages */
 }
 
 .custom-width {
-    width: 400px; /* Adjust the width as needed */
+  width: 400px; /* Adjust the width as needed */
+}
+
+.custom-width .mat-form-field-flex {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .custom-width {
+    margin-left: -1rem;
   }
-  
-  .custom-width .mat-form-field-flex {
+}
+@media (max-width: 434px) {
+  .custom-width {
     width: 100%;
+    margin-left: 4px;
+  }
+}
+
+@media (max-width: 590px) {
+    .custom-width {
+      width: 100%;
+      margin-left: 4px;
+    }
   }

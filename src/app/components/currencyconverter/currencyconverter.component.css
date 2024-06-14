@@ -49,3 +49,16 @@ p {
     max-width: 100%;
   }
 }
+
+.custom-width {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .mobile-width {
+    width: 100%;
+  }
+  .div{
+    padding: 10px 10px 10px 10px;
+  }
+}

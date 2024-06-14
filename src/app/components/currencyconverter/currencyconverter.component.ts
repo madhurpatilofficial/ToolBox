@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CurrencyConverterService } from '../../services/currency-converter.service';
 
 // Define CurrencyRate interface
@@ -22,6 +22,16 @@ export class CurrencyconverterComponent implements OnInit {
   toCurrency: string = 'INR';
   amount: number = 1;
   result: number = 0;
+  isMobile: boolean | undefined;
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.checkScreenSize();
+  }
+
+  checkScreenSize() {
+    this.isMobile = window.innerWidth <= 600; // Adjust this value as needed
+  }
+
   countryNames: any = {
     USD: 'United States',
     EUR: 'Eurozone',

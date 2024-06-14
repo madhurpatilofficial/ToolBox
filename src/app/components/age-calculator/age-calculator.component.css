@@ -69,3 +69,19 @@
 .result p {
   margin: 5px 0;
 }
+
+@media (max-width: 600px) {
+  .input-wrapper {
+    justify-content: flex-start;
+    margin-left: 25px;
+  }
+  .text{
+    margin-left: 5rem;
+  }
+  .title{
+    margin-left: 5rem;
+  }
+  .result-title{
+    margin-left: 6rem;
+  }
+}
