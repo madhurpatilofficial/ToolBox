@@ -8,7 +8,7 @@ div {
   border: 1px solid #ddd;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background: rgb(142, 214, 252);
+  background-color: #addcfd;
   color: #000000;
   display: flex;
   flex-direction: column;
@@ -65,6 +65,7 @@ button:hover {
 .custom-width {
   width: 500px;
   margin-left: 5rem;
+  margin-top: 1rem;
 }
 
 .custom-width .mat-form-field-flex {

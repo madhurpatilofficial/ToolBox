@@ -266,16 +266,13 @@ canvas {
 }
 
 @media (min-width: 768px) {
-  .chart-section, .population-section {
+  .chart-section,
+  .population-section {
     flex: 1 1 48%;
   }
 }
 
 @media (min-width: 1024px) {
-  .card {
-    flex: 1 1 calc(33.333% - 1rem);
-  }
-
   .info-column {
     flex: 1 1 calc(25% - 1rem);
   }

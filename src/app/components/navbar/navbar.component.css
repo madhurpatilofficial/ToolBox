@@ -1,143 +1,144 @@
 body,
 html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #ffffff;
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .brand {
-    background: linear-gradient(90deg, hsla(328, 75%, 45%, 1) 0%, hsla(269, 85%, 41%, 1) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    padding: 3px;
+  background: linear-gradient(
+    90deg,
+    hsla(328, 75%, 45%, 1) 0%,
+    hsla(269, 85%, 41%, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 3px;
 }
 
 nav {
-    background: #16b5ff;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    margin: 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: #1B9CFC;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-
 .brand-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 nav .brand {
-    font-size: 2.5em;
-    display: flex;
-    align-items: center;
-    margin-left: 3rem;
+  font-size: 2.5em;
+  display: flex;
+  align-items: center;
+  margin-left: 3rem;
 }
 
 nav ul {
-    font-size:15px;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    
+  font-size: 15px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
 }
 
 nav li {
-    border-radius: 12px;
-    font-weight: bold;
-    margin: 5px;
-    font-weight: normal;
+  border-radius: 12px;
+  font-weight: bold;
+  margin: 5px;
+  font-weight: normal;
 }
 
 nav a {
-    display: block;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    border-radius: 12px;
-    transition: background-color 0.3s ease-in-out;
+  display: block;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: background-color 0.3s ease-in-out;
 }
 
 nav a:hover {
-    background-color: #ffffff;
-    border-radius: 12px;
+  background-color: #ffffff;
+  border-radius: 12px;
 }
 
 .menu-icon {
-    display: none;
-    cursor: pointer;
+  display: none;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
 
+  .brand-container {
+    margin-bottom: 10px;
+  }
 
-    nav {
-        flex-direction: column;
-    }
+  nav {
+    flex-direction: column;
+  }
 
-    .brand-container {
-        margin-bottom: 10px;
-    }
+  nav ul {
+    margin-top: 10px;
+    transition: max-height 0.3s ease-in-out;
+    background-color: linear-gradient(
+      90deg,
+      hsla(211, 96%, 62%, 1) 0%,
+      hsla(295, 94%, 76%, 1) 100%
+    );
+  }
 
+  nav li {
+    margin: 5px 0;
+    font-weight: normal;
+  }
 
-    nav {
-        flex-direction: column;
-    }
+  .menu-icon {
+    display: block;
+    margin: 5px;
+  }
 
-    nav ul {
-        margin-top: 10px;
-        transition: max-height 0.3s ease-in-out;
-        background-color: linear-gradient(90deg, hsla(211, 96%, 62%, 1) 0%, hsla(295, 94%, 76%, 1) 100%);
-    }
-
-    nav li {
-        margin: 5px 0;
-        font-weight: normal;
-    }
-
-    .menu-icon {
-        display: block;
-        margin: 5px;
-    }
-
-    .menu-icon.active+ul {
-        max-height: 200px;
-    }
+  .menu-icon.active + ul {
+    max-height: 200px;
+  }
 }
 
-
 @media screen and (min-width: 601px) and (max-width: 1024px) {
-    nav {
-        padding: 15px;
-    }
-
+  nav {
+    padding: 15px;
+  }
 }
 
 @media screen and (min-width: 1025px) {
-    nav {
-        padding: 20px;
-        width: 100%;
-    }
+  nav {
+    padding: 20px;
+    width: 100%;
+  }
 
-    nav li {
-        font-weight: bold;
-    }
+  nav li {
+    font-weight: bold;
+  }
 }

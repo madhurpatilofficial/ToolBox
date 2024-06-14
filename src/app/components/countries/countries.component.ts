@@ -44,7 +44,6 @@ export class CountriesComponent implements OnInit {
         this.findTop5LowPopulation();
       },
       (error) => {
-        
         this.errorMessage = 'Error fetching countries. Please try again.';
       }
     );
@@ -91,7 +90,6 @@ export class CountriesComponent implements OnInit {
       .getCountryPopulation(this.selectedCountryCode)
       .subscribe(
         (population) => {
-          
           this.countryPopulation = population;
           this.selectedCountryName = this.countries.find(
             (country) => country.cca2 === this.selectedCountryCode
@@ -105,7 +103,6 @@ export class CountriesComponent implements OnInit {
           );
         },
         (error) => {
-          
           this.errorMessage = 'Error fetching population. Please try again.';
           this.countryPopulation = undefined;
         }
