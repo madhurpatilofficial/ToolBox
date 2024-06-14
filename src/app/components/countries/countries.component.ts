@@ -23,6 +23,7 @@ export class CountriesComponent implements OnInit {
   countryPopulation: number | undefined;
   errorMessage: string | undefined;
   chartType: string = 'bar';
+  modalChartType: string = 'bar';
   chart: any;
   top5HighPopulation: any[] = [];
   top5LowPopulation: any[] = [];
@@ -52,16 +53,26 @@ export class CountriesComponent implements OnInit {
   }
 
   colors: string[] = [
-    'rgba(255, 99, 132, 1)',
-    'rgba(54, 162, 235, 1)',
-    'rgba(128, 0, 128, 1)',
-    'rgba(255, 0, 1)',
-    'rgba(75, 192, 192, 1)',
-    'rgba(153, 102, 255, 1)',
-    'rgba(255, 159, 64, 1)',
-    'rgba(0, 255, 1)',
-    'rgba(255, 206, 86, 1)',
-    'rgba(0, 0, 255, 1)',
+    'rgba(255, 99, 132, 1)', // Bright Red
+    'rgba(54, 162, 235, 1)', // Bright Blue
+    'rgba(255, 206, 86, 1)', // Bright Yellow
+    'rgba(75, 192, 192, 1)', // Bright Cyan
+    'rgba(153, 102, 255, 1)', // Bright Purple
+    'rgba(255, 159, 64, 1)', // Bright Orange
+    'rgba(255, 99, 71, 1)', // Bright Tomato
+    'rgba(0, 255, 127, 1)', // Bright Spring Green
+    'rgba(255, 20, 147, 1)', // Bright Deep Pink
+    'rgba(138, 43, 226, 1)', // Bright Blue Violet
+    'rgba(0, 255, 255, 1)', // Bright Aqua
+    'rgba(50, 205, 50, 1)', // Bright Lime Green
+    'rgba(255, 69, 0, 1)', // Bright Red Orange
+    'rgba(30, 144, 255, 1)', // Bright Dodger Blue
+    'rgba(255, 140, 0, 1)', // Bright Dark Orange
+    'rgba(218, 112, 214, 1)', // Bright Orchid
+    'rgba(0, 191, 255, 1)', // Bright Deep Sky Blue
+    'rgba(127, 255, 0, 1)', // Bright Chartreuse
+    'rgba(255, 105, 180, 1)', // Bright Hot Pink
+    'rgba(147, 112, 219, 1)', // Bright Medium Purple
   ];
 
   fetchCountryPopulation() {
@@ -204,6 +215,7 @@ export class CountriesComponent implements OnInit {
 
   openPopulationGraphModal() {
     this.isPopulationGraphModalOpen = true;
+    this.renderPopulationChart();
   }
 
   closePopulationGraphModal() {
@@ -214,6 +226,13 @@ export class CountriesComponent implements OnInit {
     this.isHiddenInfoVisible = !this.isHiddenInfoVisible;
   }
 
+  createGradient(ctx: CanvasRenderingContext2D, chartArea: any): CanvasGradient {
+    const gradient = ctx.createLinearGradient(0, 0, 0, chartArea.bottom);
+    gradient.addColorStop(0, '#439cfb');
+    gradient.addColorStop(1, '#f187fb');
+    return gradient;
+  }
+
   renderPopulationChart(): void {
     this.countryService.getAllCountries().subscribe((countries) => {
       const labels = countries.map((country) => country.name.common);
@@ -221,28 +240,59 @@ export class CountriesComponent implements OnInit {
 
       const ctx = this.populationChart.nativeElement.getContext('2d');
       if (ctx) {
-        new Chart(ctx, {
-          type: 'bar',
+        if (this.chart) {
+          this.chart.destroy();
+        }
+
+        const commonOptions = {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        };
+
+        const chartOptions: any = {
+          type: this.modalChartType as ChartType,
           data: {
             labels: labels,
             datasets: [
               {
                 label: 'Population',
                 data: populations,
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                backgroundColor: '#FFC0CB',
                 borderColor: this.colors.slice(0, populations.length),
                 borderWidth: 3,
+                datalabels: {
+                  display: true,
+                  color: '#000',
+                },
               },
             ],
           },
           options: {
-            scales: {
-              y: {
-                beginAtZero: true,
+            ...commonOptions,
+            plugins: {
+              legend: {
+                display: true,
+                labels: {
+                  color: '#000', // Change this if you want to style the labels
+                  filter: (legendItem: any, data: any) => {
+                    if (
+                      this.modalChartType === 'polarArea' ||
+                      this.modalChartType === 'doughnut'
+                    ) {
+                      return false; // Hide external labels
+                    }
+                    return true; // Show external labels for other chart types
+                  },
+                },
               },
             },
           },
-        });
+        };
+
+        this.chart = new Chart(ctx, chartOptions);
       }
     });
   }

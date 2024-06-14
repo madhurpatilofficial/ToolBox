@@ -102,16 +102,30 @@
         </div>
       </div>
     </div>
+
     <div class="modal" [ngClass]="{ show: isPopulationGraphModalOpen }">
       <div class="modal-content">
         <span class="close" (click)="closePopulationGraphModal()">&times;</span>
         <h2>Population Graph</h2>
+        <div class="select-container" style="margin-bottom: 1rem">
+          <mat-form-field appearance="fill">
+            <mat-label>Select Graph Type</mat-label>
+            <mat-select
+              [(value)]="modalChartType"
+              (selectionChange)="renderPopulationChart()"
+            >
+              <mat-option value="bar">Bar</mat-option>
+              <mat-option value="line">Line</mat-option>
+              <mat-option value="polarArea">Polar Area</mat-option>
+              <mat-option value="radar">Radar</mat-option>
+              <mat-option value="doughnut">Doughnut</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
         <div class="chart-container">
           <canvas #populationChart width="400" height="400"></canvas>
         </div>
       </div>
     </div>
-    
-    
   </div>
 </div>
