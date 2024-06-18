@@ -33,6 +33,8 @@ nav {
   padding: 10px;
   margin: 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 998;
+  transition: all 0.3s ease;
 }
 
 .brand-container {

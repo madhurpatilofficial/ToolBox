@@ -1,0 +1,145 @@
+.container {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+}
+.custom-input-width {
+  width: 500px;
+}
+
+.text-center {
+  margin-bottom: 20px;
+}
+
+.button-group .btn {
+  flex-grow: 1;
+  margin: 5px;
+}
+
+.custom-toolbar-margin {
+  margin-left: 190px; /* Adjust the value as needed */
+}
+
+@media (max-width: 576px) {
+  .button-group .btn {
+    width: 100%;
+  }
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.button-group {
+  margin-bottom: 15px;
+}
+
+.button-group .btn {
+  margin-right: 10px;
+}
+
+.result-group {
+  margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+  .button-group .btn {
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .custom-input-width {
+    width: 300px;
+  }
+  .container {
+    padding: 16px;
+  }
+
+  .custom-input-width {
+    width: 100%;
+  }
+
+  .button-group {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .button-group button {
+    flex-basis: calc(33.33% - 10px); /* Calculate width for 3 buttons per row with spacing */
+    margin-bottom: 10px; /* Adjust as needed for vertical spacing */
+  }
+  .custom-toolbar-margin {
+    margin-left: 100px;
+  }
+}
+
+@media (width : 415px){
+  .custom-toolbar-margin {
+    margin-left: 100px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+
+  .custom-toolbar-margin {
+    margin-left: 100px;
+  }
+  .container {
+    padding: 24px;
+  }
+
+  .button-group {
+    justify-content: space-around;
+  }
+
+  .button-group button {
+    flex-basis: calc(33.33% - 10px); /* Calculate width for 3 buttons per row with spacing */
+    margin-bottom: 10px; /* Adjust as needed for vertical spacing */
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    padding: 32px;
+  }
+
+  .button-group {
+    justify-content: space-around;
+  }
+
+  .button-group button {
+    flex-basis: calc(33.33% - 10px); /* Calculate width for 3 buttons per row with spacing */
+    margin-bottom: 10px; /* Adjust as needed for vertical spacing */
+  }
+
+  .custom-toolbar-margin {
+    margin-left: 250px;
+  }
+}
+
+.button-group-container {
+  margin: 20px; /* Adjust as needed for spacing around the entire button group */
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px; /* Adjust as needed for vertical and horizontal spacing between buttons */
+}
+
+.button-group button {
+  flex: 1 1 auto;
+  margin-bottom: 10px; /* Adjust as needed for vertical spacing between rows of buttons */
+}
+
+.clear-button {
+  margin-left: 10px;
+  background-color: #e0e0e0; /* Set background color */
+}

@@ -23,9 +23,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { CountriesComponent } from './components/countries/countries.component';
 import { FontsComponent } from './components/fonts/fonts.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select'; 
+import { MatSelectModule } from '@angular/material/select';
+import { StringManipulatorComponent } from './components/string-manipulator/string-manipulator.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { AlertModule } from 'ngx-bootstrap/alert'; // Correct import for ngx-bootstrap
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { MatSelectModule } from '@angular/material/select';
     WorldClockComponent,
     AgeCalculatorComponent,
     FontsComponent,
-    CountriesComponent
+    CountriesComponent,
+    StringManipulatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,8 +60,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    MatToolbarModule,
+    AlertModule.forRoot(), // Properly initialize the AlertModule
   ],
-  providers: [WorldTimeService, provideAnimationsAsync()],
-  bootstrap: [AppComponent]
+  providers: [WorldTimeService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

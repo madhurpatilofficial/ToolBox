@@ -1,0 +1,149 @@
+<div class="container mt-3">
+  <mat-toolbar color="primary" class="mb-4 d-flex">
+    <span style="flex-grow: 1" class="custom-toolbar-margin"
+      >Data Manipulator</span
+    >
+  </mat-toolbar>
+
+  <mat-card class="mb-4">
+    <mat-card-content>
+      <h2 class="mat-headline">Perform various data operations</h2>
+
+      <mat-form-field class="custom-input-width" appearance="fill">
+        <mat-label class="custom-input-width">Enter data</mat-label>
+        <input matInput [(ngModel)]="inputString" style="font-size: 16px" />
+      </mat-form-field>
+
+      <button mat-button color="accent" class="clear-button" (click)="clear()">
+        Clear
+      </button>
+
+      <div class="button-group-container mt-3">
+        <div class="button-group">
+          <button mat-raised-button color="primary" (click)="removeSpaces()">
+            Remove Spaces
+          </button>
+          <button mat-raised-button color="warn" (click)="toUpperCase()">
+            To Upper Case
+          </button>
+          <button mat-raised-button color="accent" (click)="toLowerCase()">
+            To Lower Case
+          </button>
+          <button mat-raised-button (click)="reverseString()">
+            Reverse String
+          </button>
+          <button mat-raised-button (click)="countWords()">Count Words</button>
+          <button mat-raised-button color="primary" (click)="capitalizeWords()">
+            Capitalize Words
+          </button>
+          <button mat-raised-button color="warn" (click)="toggleCase()">
+            Toggle Case
+          </button>
+          <button mat-raised-button color="accent" (click)="removeDuplicates()">
+            Remove Duplicates
+          </button>
+          <button mat-raised-button (click)="reverseWords()">
+            Reverse Words
+          </button>
+          <button mat-raised-button color="primary" (click)="sortCharacters()">
+            Sort Characters
+          </button>
+          <button mat-raised-button color="warn" (click)="encodeBase64()">
+            Encode Base64
+          </button>
+          <button mat-raised-button color="accent" (click)="decodeBase64()">
+            Decode Base64
+          </button>
+          <button mat-raised-button (click)="toCamelCase()">
+            To Camel Case
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="truncateString(10)"
+          >
+            Truncate String
+          </button>
+          <button mat-raised-button color="warn" (click)="toTitleCase()">
+            To Title Case
+          </button>
+          <button mat-raised-button color="accent" (click)="checkPalindrome()">
+            Check Palindrome
+          </button>
+          <button mat-raised-button (click)="showReplaceInputs = true">
+            Replace Substring
+          </button>
+          <button mat-raised-button (click)="toKebabCase()">
+            To Kebab Case
+          </button>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="showInsertInputs = true"
+          >
+            Insert Substring
+          </button>
+        </div>
+      </div>
+
+      <!-- Replace inputs -->
+      <div *ngIf="showReplaceInputs">
+        <mat-form-field class="custom-input-width" appearance="fill">
+          <mat-label class="custom-input-width">Replace From</mat-label>
+          <input matInput [(ngModel)]="replaceFrom" style="font-size: 16px" />
+        </mat-form-field>
+
+        <mat-form-field class="custom-input-width" appearance="fill">
+          <mat-label class="custom-input-width">Replace To</mat-label>
+          <input matInput [(ngModel)]="replaceTo" style="font-size: 16px" />
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="replaceSubstring(); showReplaceInputs = false"
+        >
+          Replace
+        </button>
+      </div>
+      <!-- Insert inputs -->
+      <div *ngIf="showInsertInputs">
+        <mat-form-field class="custom-input-width" appearance="fill">
+          <mat-label class="custom-input-width">Insert Content</mat-label>
+          <input matInput [(ngModel)]="insertContent" style="font-size: 16px" />
+        </mat-form-field>
+
+        <mat-form-field class="custom-input-width" appearance="fill">
+          <mat-label class="custom-input-width">Insert Position</mat-label>
+          <input
+            matInput
+            type="number"
+            [(ngModel)]="insertPosition"
+            style="font-size: 16px"
+          />
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="insertSubString(); showInsertInputs = false"
+        >
+          Insert
+        </button>
+      </div>
+
+      <!-- Result display -->
+      <div *ngIf="resultString" class="mt-3 me-3" style="margin-left: 15px">
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Result</mat-label>
+          <input
+            matInput
+            [value]="resultString"
+            readonly
+            style="font-size: 16px"
+          />
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

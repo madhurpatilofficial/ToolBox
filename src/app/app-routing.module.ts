@@ -10,6 +10,7 @@ import { WorldClockComponent } from './components/world-clock/world-clock.compon
 import { AgeCalculatorComponent } from './components/age-calculator/age-calculator.component';
 import { CountriesComponent } from './components/countries/countries.component';
 import { FontsComponent } from './components/fonts/fonts.component';
+import { StringManipulatorComponent } from './components/string-manipulator/string-manipulator.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'fontconverter',
     component: FontsComponent
+  },
+  {
+    path: 'data-manipulation',
+    component: StringManipulatorComponent
   }
 ];
 
