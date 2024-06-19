@@ -65,9 +65,7 @@ nav ul {
 
 nav li {
   border-radius: 12px;
-  font-weight: bold;
   margin: 5px;
-  font-weight: normal;
 }
 
 nav a {
@@ -141,6 +139,8 @@ nav a:hover {
   }
 
   nav li {
-    font-weight: bold;
+    font-size:medium;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight:normal !important;
   }
 }

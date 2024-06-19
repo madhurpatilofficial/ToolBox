@@ -1,5 +1,5 @@
 .container {
-  max-width: 700px;
+  max-width: 900px;
   margin: 20px auto;
   padding: 30px;
   border: 1px solid #ccc;
@@ -20,7 +20,7 @@
 }
 
 .custom-toolbar-margin {
-  margin-left: 190px; /* Adjust the value as needed */
+  margin-left: 190px;
 }
 
 @media (max-width: 576px) {
@@ -54,7 +54,6 @@
 }
 
 @media (max-width: 768px) {
-
   .custom-input-width {
     width: 300px;
   }
@@ -72,22 +71,21 @@
   }
 
   .button-group button {
-    flex-basis: calc(33.33% - 10px); /* Calculate width for 3 buttons per row with spacing */
-    margin-bottom: 10px; /* Adjust as needed for vertical spacing */
+    flex-basis: calc(33.33% - 10px);
+    margin-bottom: 10px;
   }
   .custom-toolbar-margin {
     margin-left: 100px;
   }
 }
 
-@media (width : 415px){
+@media (width: 415px) {
   .custom-toolbar-margin {
     margin-left: 100px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
-
   .custom-toolbar-margin {
     margin-left: 100px;
   }
@@ -100,14 +98,20 @@
   }
 
   .button-group button {
-    flex-basis: calc(33.33% - 10px); /* Calculate width for 3 buttons per row with spacing */
-    margin-bottom: 10px; /* Adjust as needed for vertical spacing */
+    flex-basis: calc(33.33% - 10px);
+    margin-bottom: 10px;
   }
 }
 
 @media (min-width: 992px) {
+  .mat-headline{
+    margin-left: 20px;
+  }
   .container {
     padding: 32px;
+  }
+  #clearbtn {
+    margin-left: 18px;
   }
 
   .button-group {
@@ -115,31 +119,35 @@
   }
 
   .button-group button {
-    flex-basis: calc(33.33% - 10px); /* Calculate width for 3 buttons per row with spacing */
-    margin-bottom: 10px; /* Adjust as needed for vertical spacing */
+    flex-basis: calc(33.33% - 10px);
+    margin-bottom: 10px;
   }
 
   .custom-toolbar-margin {
-    margin-left: 250px;
+    margin-left: 350px;
+  }
+  .custom-input-width {
+    margin-left:20px;
+    width: 745px;
   }
 }
 
 .button-group-container {
-  margin: 20px; /* Adjust as needed for spacing around the entire button group */
+  margin: 20px;
 }
 
 .button-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 10px; /* Adjust as needed for vertical and horizontal spacing between buttons */
+  gap: 10px 10px;
 }
 
 .button-group button {
   flex: 1 1 auto;
-  margin-bottom: 10px; /* Adjust as needed for vertical spacing between rows of buttons */
+  margin-bottom: 10px;
 }
 
 .clear-button {
   margin-left: 10px;
-  background-color: #e0e0e0; /* Set background color */
+  background-color: #e0e0e0;
 }
