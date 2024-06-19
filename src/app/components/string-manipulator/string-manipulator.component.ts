@@ -13,15 +13,81 @@ export class StringManipulatorComponent {
   insertSubstring: string = '';
   insertPosition: number = 0;
   insertContent: string = '';
-
   showReplaceInputs: boolean = false;
   showInsertInputs: boolean = false;
+  voices: SpeechSynthesisVoice[] = [];
+  selectedVoice: SpeechSynthesisVoice | null = null;
+
+  isBlinking: boolean = true;
+
+  toggleBlink() {
+    this.isBlinking = !this.isBlinking;
+  }
+
+  ngOnInit() {
+    this.populateVoiceList();
+    if (
+      typeof speechSynthesis !== 'undefined' &&
+      speechSynthesis.onvoiceschanged !== undefined
+    ) {
+      speechSynthesis.onvoiceschanged = this.populateVoiceList.bind(this);
+    }
+  }
+
+  populateVoiceList() {
+    if (typeof speechSynthesis === 'undefined') {
+      return;
+    }
+
+    this.voices = speechSynthesis.getVoices();
+    const voiceSelect = document.getElementById('voiceSelect');
+
+    if (voiceSelect) {
+      voiceSelect.innerHTML = ''; // Clear existing options
+
+      for (let i = 0; i < this.voices.length; i++) {
+        const option = document.createElement('option');
+        option.textContent = `${this.voices[i].name} (${this.voices[i].lang})`;
+
+        if (this.voices[i].default) {
+          option.textContent += ' — DEFAULT';
+        }
+
+        option.setAttribute('data-lang', this.voices[i].lang);
+        option.setAttribute('data-name', this.voices[i].name);
+        voiceSelect.appendChild(option);
+      }
+    }
+  }
+
+  readTextAloud() {
+    if (!this.inputString) return;
+
+    const msg = new SpeechSynthesisUtterance(this.inputString);
+    const selectedVoiceName = (
+      document.getElementById('voiceSelect') as HTMLSelectElement
+    )?.selectedOptions[0]?.getAttribute('data-name');
+
+    if (selectedVoiceName) {
+      const selectedVoice = this.voices.find(
+        (voice) => voice.name === selectedVoiceName
+      );
+      if (selectedVoice) {
+        msg.voice = selectedVoice;
+      }
+    }
+
+    window.speechSynthesis.speak(msg);
+  }
+
+  stopTextAloud() {
+    window.speechSynthesis.cancel();
+  }
 
   // Function to remove spaces from input string
   removeSpaces() {
     this.resultString = this.inputString.replace(/\s/g, '');
   }
-
   // Function to convert input string to uppercase
   toUpperCase() {
     this.resultString = this.inputString.toUpperCase();
@@ -627,5 +693,107 @@ export class StringManipulatorComponent {
   // Function to convert newlines to <br> in the input string
   convertNewlinesToBr() {
     this.resultString = this.inputString.replace(/\n/g, '<br>');
+  }
+
+  // Function to extract unique words in the input string
+  extractUniqueWords() {
+    const words = this.inputString.match(/\b\w+\b/g);
+    this.resultString = words ? Array.from(new Set(words)).join(', ') : '';
+  }
+
+  // Function to find the most frequent word in the input string
+  findMostFrequentWord() {
+    const words = this.inputString.match(/\b\w+\b/g);
+    if (words) {
+      const frequencyMap = words.reduce((acc, word) => {
+        acc[word] = (acc[word] || 0) + 1;
+        return acc;
+      }, {} as { [key: string]: number });
+      const mostFrequentWord = Object.keys(frequencyMap).reduce((a, b) =>
+        frequencyMap[a] > frequencyMap[b] ? a : b
+      );
+      this.resultString = mostFrequentWord;
+    } else {
+      this.resultString = '';
+    }
+  }
+
+  // Function to convert input string to Pig Latin
+  toPigLatin() {
+    this.resultString = this.inputString
+      .split(' ')
+      .map((word) =>
+        word.length > 1 ? word.slice(1) + word[0] + 'ay' : word + 'ay'
+      )
+      .join(' ');
+  }
+
+  // Function to find the first non-repeated character in the input string
+  findFirstNonRepeatedChar() {
+    const frequencyMap = this.inputString.split('').reduce((acc, char) => {
+      acc[char] = (acc[char] || 0) + 1;
+      return acc;
+    }, {} as { [key: string]: number });
+    this.resultString =
+      this.inputString.split('').find((char) => frequencyMap[char] === 1) || '';
+  }
+
+  // Function to generate a random string of specified length
+  generateRandomString(length: number) {
+    const characters =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    this.resultString = Array.from({ length }, () =>
+      characters.charAt(Math.floor(Math.random() * characters.length))
+    ).join('');
+  }
+
+  // Function to convert input string to binary
+  toBinary() {
+    this.resultString = this.inputString
+      .split('')
+      .map((char) => char.charCodeAt(0).toString(2).padStart(8, '0'))
+      .join(' ');
+  }
+
+  // Function to convert binary to string
+  fromBinary() {
+    this.resultString = this.inputString
+      .split(' ')
+      .map((bin) => String.fromCharCode(parseInt(bin, 2)))
+      .join('');
+  }
+
+  // Function to find the longest palindrome substring in the input string
+  findLongestPalindromeSubstring() {
+    const isPalindrome = (s: string) => s === s.split('').reverse().join('');
+    let longestPalindrome = '';
+    for (let i = 0; i < this.inputString.length; i++) {
+      for (let j = i + 1; j <= this.inputString.length; j++) {
+        const substring = this.inputString.slice(i, j);
+        if (
+          isPalindrome(substring) &&
+          substring.length > longestPalindrome.length
+        ) {
+          longestPalindrome = substring;
+        }
+      }
+    }
+    this.resultString = longestPalindrome;
+  }
+
+  // Function to find all substrings of a given length
+  findAllSubstrings(length: number) {
+    const substrings = [];
+    for (let i = 0; i <= this.inputString.length - length; i++) {
+      substrings.push(this.inputString.slice(i, i + length));
+    }
+    this.resultString = substrings.join(', ');
+  }
+
+  // Function to count occurrences of a specific word
+  countSpecificWord(word: string) {
+    const regex = new RegExp(`\\b${word}\\b`, 'gi');
+    const match = this.inputString.match(regex);
+    this.resultString = match ? match.length.toString() : '0';
   }
 }

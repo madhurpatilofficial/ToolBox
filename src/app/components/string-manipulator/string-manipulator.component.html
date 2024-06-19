@@ -11,7 +11,15 @@
 
       <mat-form-field class="custom-input-width" appearance="fill">
         <mat-label class="custom-input-width">Enter data</mat-label>
-        <input matInput [(ngModel)]="inputString" style="font-size: 16px" />
+        <textarea
+          matInput
+          [(ngModel)]="inputString"
+          style="font-size: 16px"
+          cdkTextareaAutosize
+          #autosize="cdkTextareaAutosize"
+          cdkAutosizeMinRows="1"
+          cdkAutosizeMaxRows="5"
+        ></textarea>
       </mat-form-field>
 
       <button
@@ -19,10 +27,44 @@
         color="accent"
         class="clear-button"
         id="clearbtn"
+        style="height: 50px; margin-bottom: 15px"
         (click)="clear()"
       >
         Clear
       </button>
+
+      <div>
+        <mat-form-field appearance="fill" class="custom-select" id="select">
+          <mat-label>Select Voice</mat-label>
+          <mat-select [(value)]="selectedVoice">
+            <mat-option *ngFor="let voice of voices" [value]="voice">
+              {{ voice.name }} ({{ voice.lang }})
+              <span *ngIf="voice.default"> — DEFAULT</span>
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          style="height: 50px; margin-bottom: 10px"
+          class="custom-select"
+          [class.blink]="isBlinking"
+          onload="toggleBlink()"
+          (click)="readTextAloud()"
+        >
+          <span class="btn-color">Read Text Aloud</span>
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          style="height: 50px; margin-bottom: 10px;"
+          class="custom-select"
+          (onload)="stopTextAloud()"
+          (click)="stopTextAloud()"
+        >
+          Stop
+        </button>
+      </div>
 
       <div class="button-group-container mt-3">
         <div class="button-group">
@@ -440,6 +482,69 @@
             (click)="showInsertInputs = true"
           >
             Insert Substring
+          </button>
+
+          <!-- Button to extract unique words -->
+          <button
+            mat-raised-button
+            style="background-color: #4caf50"
+            (click)="extractUniqueWords()"
+          >
+            Extract Unique Words
+          </button>
+
+          <!-- Button to find the most frequent word -->
+          <button
+            mat-raised-button
+            style="background-color: #ff5722"
+            (click)="findMostFrequentWord()"
+          >
+            Find Most Frequent Word
+          </button>
+
+          <!-- Button to find the first non-repeated character -->
+          <button
+            mat-raised-button
+            style="background-color: #03a9f4"
+            (click)="findFirstNonRepeatedChar()"
+          >
+            Find First Non-Repeated Character
+          </button>
+
+          <!-- Button to generate a random string of specified length -->
+          <button
+            mat-raised-button
+            style="background-color: #ffc107"
+            (click)="generateRandomString(10)"
+          >
+            Generate Random String
+          </button>
+
+          <!-- Button to convert string to binary -->
+          <button
+            mat-raised-button
+            style="background-color: #9c27b0"
+            (click)="toBinary()"
+          >
+            Convert to Binary
+          </button>
+
+          <!-- Button to find the longest palindrome substring -->
+          <button
+            mat-raised-button
+            style="background-color: #e91e63"
+            (click)="findLongestPalindromeSubstring()"
+          >
+            Find Longest Palindrome Substring
+          </button>
+
+          <!-- Button to find all substrings of a given length -->
+          <button
+            mat-raised-button
+            style="background-color: #7d68f3"
+            (click)="findAllSubstrings(3)"
+          >
+            Find All Substrings
           </button>
         </div>
       </div>

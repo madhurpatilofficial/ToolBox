@@ -54,6 +54,13 @@
 }
 
 @media (max-width: 768px) {
+  #select {
+    width: 100%;
+  }
+  .custom-select {
+    margin-right: 10px;
+  }
+
   .custom-input-width {
     width: 300px;
   }
@@ -104,7 +111,14 @@
 }
 
 @media (min-width: 992px) {
-  .mat-headline{
+  #select {
+    width: 66%;
+  }
+  .custom-select {
+    margin-left: 18px;
+  }
+
+  .mat-headline {
     margin-left: 20px;
   }
   .container {
@@ -127,7 +141,7 @@
     margin-left: 350px;
   }
   .custom-input-width {
-    margin-left:20px;
+    margin-left: 20px;
     width: 745px;
   }
 }
@@ -150,4 +164,24 @@
 .clear-button {
   margin-left: 10px;
   background-color: #e0e0e0;
+}
+
+@keyframes blink {
+  0% {
+    color: rgb(0, 0, 0);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    color: rgb(0, 0, 0);
+  }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+.btn-color {
+  color: #ccc;
 }
