@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   population: string = "Find out the population of the country with data analysis"
   agecalculator: string = "Find out the age according to your age"
   fontconverter: string  = "Convert your normal tect to amazing fonts"
+  dataManipulator: string = "Perform over 40 different operations, including encoding, decoding, string transformations and many more"
 
   constructor() { }
 
