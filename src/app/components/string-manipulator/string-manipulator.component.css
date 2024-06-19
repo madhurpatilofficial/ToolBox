@@ -111,6 +111,10 @@
 }
 
 @media (min-width: 992px) {
+  #resultbtn{
+    width: 93%;
+    margin-left: 33px;
+  }
   #select {
     width: 66%;
   }
@@ -184,4 +188,9 @@
 
 .btn-color {
   color: #ccc;
+}
+
+.note {
+  font-style: italic;
+  color: grey;
 }
