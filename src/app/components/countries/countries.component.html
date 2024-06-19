@@ -69,6 +69,7 @@
             mat-flat-button
             color="primary"
             (click)="openPopulationGraphModal()"
+            [ngClass]="{ blinking: isBlinking }"
           >
             View Graph
           </button>

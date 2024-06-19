@@ -38,6 +38,7 @@ export class CountriesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.toggleBlinking();
     this.countryService.getAllCountries().subscribe(
       (countries) => {
         this.countries = countries;
