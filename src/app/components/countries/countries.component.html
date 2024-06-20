@@ -1,7 +1,7 @@
 <div class="container">
   <div class="chart-section">
     <div class="select-container">
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="custom-select">
         <mat-label>Select a country</mat-label>
         <mat-select
           [(value)]="selectedCountryCode"
@@ -28,7 +28,7 @@
       *ngIf="selectedCountryCode"
       style="margin-left: 1rem"
     >
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="custom-select">
         <mat-label>Select Chart Type</mat-label>
         <mat-select [(ngModel)]="chartType" (selectionChange)="renderChart()">
           <mat-option value="bar">Bar Chart</mat-option>
@@ -41,26 +41,27 @@
   </div>
 
   <div class="population-section">
-    <div class="top-population">
-      <h2>Top 5 Countries with High Population</h2>
-      <div class="card-container">
-        <div *ngFor="let country of top5HighPopulation" class="card">
-          <div class="card-header">{{ country.name.common }}</div>
-          <div class="card-body">{{ country.population | number }}</div>
+    <div class="addinfowrap">
+      <div class="top-population">
+        <h2>Top 5 Countries with High Population</h2>
+        <div class="card-container">
+          <div *ngFor="let country of top5HighPopulation" class="card">
+            <div class="card-header">{{ country.name.common }}</div>
+            <div class="card-body">{{ country.population | number }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="low-population">
+        <h2>Top 5 Countries with Low Population</h2>
+        <div class="card-container">
+          <div *ngFor="let country of top5LowPopulation" class="card">
+            <div class="card-header">{{ country.name.common }}</div>
+            <div class="card-body">{{ country.population | number }}</div>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="low-population">
-      <h2>Top 5 Countries with Low Population</h2>
-      <div class="card-container">
-        <div *ngFor="let country of top5LowPopulation" class="card">
-          <div class="card-header">{{ country.name.common }}</div>
-          <div class="card-body">{{ country.population | number }}</div>
-        </div>
-      </div>
-    </div>
-
     <div class="additional-info-wrapper">
       <div class="additional-info">
         <h2>
@@ -109,7 +110,11 @@
         <span class="close" (click)="closePopulationGraphModal()">&times;</span>
         <h2>Population Graph</h2>
         <div class="select-container" style="margin-bottom: 1rem">
-          <mat-form-field appearance="fill">
+          <mat-form-field
+            appearance="fill"
+            class="custom-select"
+            id="viewgraph"
+          >
             <mat-label>Select Graph Type</mat-label>
             <mat-select
               [(value)]="modalChartType"

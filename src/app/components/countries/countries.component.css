@@ -280,4 +280,60 @@ canvas {
   .modal-content {
     width: 60%;
   }
+  .custom-select{
+    width: 70%;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem;
+  }
+  .custom-select{
+    width: 100%;
+  }
+
+  #viewgraph{
+    width: 95%;
+  }
+  
+  .chart-section,
+  .population-section {
+    margin-left: 0.3rem;
+  }
+
+  .chart-section .select-container,
+  .chart-section .result-container,
+  .chart-section canvas {
+    width: 100%;
+  }
+
+  .population-section .top-population,
+  .population-section .low-population,
+  .population-section .additional-info-wrapper,
+  .population-section .modal {
+    width: 100%;
+  }
+
+  .population-section .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .population-section .card {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .additional-info-wrapper .info-column {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  .addinfowrap{
+    display: none;
+  }
 }
