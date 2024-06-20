@@ -113,8 +113,8 @@ select {
 }
 
 @media (max-width: 590px) {
-    .custom-width {
-      width: 100%;
-      margin-left: 4px;
-    }
+  .custom-width {
+    width: 100%;
+    margin-left: 4px;
   }
+}
