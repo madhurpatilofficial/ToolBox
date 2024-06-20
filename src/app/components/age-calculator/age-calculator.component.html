@@ -1,68 +1,68 @@
-<div class="container">
-  <mat-card class="card">
-    <mat-card-header>
-      <mat-card-title class="title">Age Calculator</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-label class="text">Enter Your Birthdate</mat-label>
-      <div class="input-wrapper">
-        <mat-form-field appearance="fill">
-          <mat-label>Birth Date</mat-label>
-          <input
-            matInput
-            [matDatepicker]="picker"
-            [(ngModel)]="birthDate"
-            (dateChange)="calculateAge()"
-            [max]="maxDate"
-            [min]="minDate"
-          />
-          <mat-datepicker-toggle
-            matSuffix
-            [for]="picker"
-          ></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-    </mat-card-content>
-  </mat-card>
+<div class="calculator-container">
+  <div *ngIf="isLargeScreen" class="calculator-title mat-card mat-elevation-z4">
+    <div class="mat-card-content">Age Calculator</div>
+  </div>
 
-  <mat-card class="result-card">
-    <mat-card-header>
-      <mat-card-title class="result-title">Age Result</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div *ngIf="birthDate" class="result">
-        <mat-card class="result-item">
-          <mat-card-content>
-            <p><strong>Years:</strong> {{ age.years }}</p>
-          </mat-card-content>
-        </mat-card>
-        <mat-card class="result-item">
-          <mat-card-content>
-            <p><strong>Months:</strong> {{ age.months }}</p>
-          </mat-card-content>
-        </mat-card>
-        <mat-card class="result-item">
-          <mat-card-content>
-            <p><strong>Days:</strong> {{ age.days }}</p>
-          </mat-card-content>
-        </mat-card>
-        <mat-card class="result-item">
-          <mat-card-content>
-            <p><strong>Hours:</strong> {{ age.hours }}</p>
-          </mat-card-content>
-        </mat-card>
-        <mat-card class="result-item">
-          <mat-card-content>
-            <p><strong>Minutes:</strong> {{ age.minutes }}</p>
-          </mat-card-content>
-        </mat-card>
-        <mat-card class="result-item">
-          <mat-card-content>
-            <p><strong>Seconds:</strong> {{ age.seconds }}</p>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </mat-card-content>
-  </mat-card>
+  <div class="container">
+    <mat-card class="card">
+      <mat-card-content>
+        <mat-label class="text">Enter Your Birthdate</mat-label>
+        <div class="input-wrapper">
+          <mat-form-field appearance="fill">
+            <mat-label>Birth Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              [(ngModel)]="birthDate"
+              (dateChange)="calculateAge()"
+              [max]="maxDate"
+              [min]="minDate"
+            />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="result-card">
+      <mat-card-header>
+        <mat-card-title class="result-title">Age Result</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngIf="birthDate" class="result">
+          <mat-card class="result-item">
+            <mat-card-content>
+              <p><strong>Years:</strong> {{ age.years }}</p>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="result-item">
+            <mat-card-content>
+              <p><strong>Months:</strong> {{ age.months }}</p>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="result-item">
+            <mat-card-content>
+              <p><strong>Days:</strong> {{ age.days }}</p>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="result-item">
+            <mat-card-content>
+              <p><strong>Hours:</strong> {{ age.hours }}</p>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="result-item">
+            <mat-card-content>
+              <p><strong>Minutes:</strong> {{ age.minutes }}</p>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="result-item">
+            <mat-card-content>
+              <p><strong>Seconds:</strong> {{ age.seconds }}</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>

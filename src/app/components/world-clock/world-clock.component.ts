@@ -3,6 +3,7 @@
 import { Component } from '@angular/core';
 import { WorldTimeService } from '../../services/world-service.service';
 import { countries } from '../../constants/countries';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-world-clock',
@@ -16,7 +17,16 @@ export class WorldClockComponent {
   hourMarkers: number[] = Array.from({ length: 12 }, (_, i) => i + 1);
   minuteMarkers: number[] = Array.from({ length: 60 }, (_, i) => i + 1);
 
-  constructor(private worldTimeService: WorldTimeService) { }
+  isLargeScreen: boolean = false;
+
+  constructor(private worldTimeService: WorldTimeService, private breakpointObserver: BreakpointObserver) {}
+
+  ngOnInit() {
+    this.breakpointObserver.observe([Breakpoints.Large, Breakpoints.XLarge])
+      .subscribe(result => {
+        this.isLargeScreen = result.matches;
+      });
+  }
 
   onCountryChange() {
     this.worldTimeService.getTimeByCountry(this.selectedCountryCode)

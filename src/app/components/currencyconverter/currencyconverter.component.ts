@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CurrencyConverterService } from '../../services/currency-converter.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 // Define CurrencyRate interface
 interface CurrencyRate {
@@ -23,6 +24,7 @@ export class CurrencyconverterComponent implements OnInit {
   amount: number = 1;
   result: number = 0;
   isMobile: boolean | undefined;
+  isLargeScreen: boolean = false;
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.checkScreenSize();
@@ -261,11 +263,18 @@ export class CurrencyconverterComponent implements OnInit {
     ZWL: 'Zimbabwe',
   };
 
-  constructor(private converterService: CurrencyConverterService) {}
+
+  constructor(private converterService: CurrencyConverterService, private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
     this.fetchConversionRates();
+    this.breakpointObserver.observe([Breakpoints.Large, Breakpoints.XLarge])
+    .subscribe(result => {
+      this.isLargeScreen = result.matches;
+    });
   }
+
+
 
   fetchConversionRates(): void {
     this.converterService.getConversionRates().subscribe(

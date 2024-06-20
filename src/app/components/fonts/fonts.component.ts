@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -67,10 +68,16 @@ export class FontsComponent implements OnInit {
   selectedFont: string = 'Arial'; // Set default font to Arial
   
   convertedText: string = '';
+  isLargeScreen: boolean = false;
 
-  constructor() {}
+  constructor( private breakpointObserver: BreakpointObserver) {}
   ngOnInit(): void {
+    this.breakpointObserver.observe([Breakpoints.Large, Breakpoints.XLarge])
+    .subscribe(result => {
+      this.isLargeScreen = result.matches;
+    });
     throw new Error('Method not implemented.');
+
   }
 
   convertText() {

@@ -1,3 +1,11 @@
+
+<div class="calculator-container">
+  <div *ngIf="isLargeScreen" class="calculator-title">
+    <div class="mat-card mat-elevation-z4">
+      <div class="mat-card-content">Find Capital</div>
+    </div>
+  </div>
+
 <div class="find-capital-container" style="margin-top: 5rem;">
   <mat-form-field appearance="fill" class="custom-width">
     <mat-label>Select a Country</mat-label>
@@ -9,4 +17,5 @@
 
   <div *ngIf="error" class="error-message">{{ error }}</div>
   <div *ngIf="capital" class="result">Capital: {{ capital }}</div>
+</div>
 </div>

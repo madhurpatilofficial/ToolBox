@@ -1,20 +1,27 @@
-<div class="calculator" [ngClass]="{'small-screen': isSmallScreen}" style="margin-top: 5rem">
-  <div class="input-display">
-    <div class="input-box">
-      <label for="input" class="label">Input</label>
-      <div class="input">{{ currentInput }}</div>
+<div class="calculator-container">
+  <div *ngIf="isLargeScreen" class="calculator-title mat-card mat-elevation-z4">
+    <div class="mat-card-content">
+      Calculator
     </div>
   </div>
-  <div class="output-display">
-    <div class="output-box">
-      <label for="output" class="label">Output</label>
-      <div class="output">{{ result }}</div>
+  <div class="calculator" [ngClass]="{'small-screen': isSmallScreen}" style="margin-top: 5rem">
+    <div class="input-display">
+      <div class="input-box">
+        <label for="input" class="label">Input</label>
+        <div class="input">{{ currentInput }}</div>
+      </div>
     </div>
-  </div>
+    <div class="output-display">
+      <div class="output-box">
+        <label for="output" class="label">Output</label>
+        <div class="output">{{ result }}</div>
+      </div>
+    </div>
 
-  <div class="buttons">
-    <button *ngFor="let button of calculatorButtons" (click)="handleButtonClick(button.value)">
-      {{ button.label }}
-    </button>
+    <div class="buttons">
+      <button *ngFor="let button of calculatorButtons" (click)="handleButtonClick(button.value)">
+        {{ button.label }}
+      </button>
+    </div>
   </div>
 </div>

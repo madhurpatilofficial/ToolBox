@@ -1,19 +1,38 @@
-<div class="container">
-    <h1>Font Converter</h1>
+<div class="title" *ngIf="isLargeScreen">
+  <h2>Font Converter</h2>
+</div>
+<div class="newcont">
+  <div class="container">
     <div>
-      <div>
-        <textarea [(ngModel)]="inputText" placeholder="Type your text here" class="textarea" (input)="convertText()"></textarea>
-      </div>
-      <select [(ngModel)]="selectedFont" class="select">
-        <option *ngFor="let font of fonts" [value]="font">{{ font }}</option>
-      </select>
+      <mat-form-field appearance="fill" class="custom-width">
+        <mat-label>Type your text here</mat-label>
+        <textarea
+          cdkTextareaAutosize
+          cdkAutosizeMinRows="3"
+          cdkAutosizeMaxRows="10"
+          #autosize="cdkTextareaAutosize"
+          matInput
+          [(ngModel)]="inputText"
+          (input)="convertText()"
+        ></textarea>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="custom-width">
+        <mat-label>Select a font</mat-label>
+        <mat-select [(ngModel)]="selectedFont">
+          <mat-option *ngFor="let font of fonts" [value]="font">{{
+            font
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
   </div>
   <div class="container" *ngIf="selectedFont">
     <div class="converted-text" [style.font-family]="selectedFont">
-      {{ convertedText }}
+      <mat-label class="output-text">{{ convertedText }}</mat-label>
       <div class="converted-text-buttons">
-        <button (click)="copyConvertedText()">Copy</button>
+        <button mat-raised-button color="primary" (click)="copyConvertedText()">Copy</button>
       </div>
     </div>
   </div>
+  
+</div>

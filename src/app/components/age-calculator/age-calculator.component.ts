@@ -1,3 +1,4 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnDestroy } from '@angular/core';
 
 @Component({
@@ -10,8 +11,18 @@ export class AgeCalculatorComponent implements OnDestroy {
   birthDate: Date | null = null;
   maxDate: Date;
   minDate: Date;
+  isLargeScreen: boolean = false;
 
-  constructor() {
+
+  ngOnInit(): void {
+    this.breakpointObserver.observe([Breakpoints.Large, Breakpoints.XLarge])
+    .subscribe(result => {
+      this.isLargeScreen = result.matches;
+    });
+  }
+
+
+  constructor(private breakpointObserver: BreakpointObserver) {
     this.maxDate = new Date();
     this.minDate = new Date(1910, 0, 1);
   }

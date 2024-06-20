@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 interface CalculatorButton {
   label: string;
@@ -14,6 +15,7 @@ export class CalculatorComponent implements OnInit {
   result: string = '';
   currentInput: string = '';
   isSmallScreen: boolean | undefined;
+  isLargeScreen: boolean = false;
 
   calculatorButtons: CalculatorButton[] = [
     { label: '7', value: '7' },
@@ -34,10 +36,14 @@ export class CalculatorComponent implements OnInit {
     { label: 'C', value: 'C' }
   ];
 
-  constructor() { }
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
     this.checkScreenSize();
+    this.breakpointObserver.observe([Breakpoints.Large, Breakpoints.XLarge])
+    .subscribe(result => {
+      this.isLargeScreen = result.matches;
+    });
   }
 
 

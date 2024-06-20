@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { saveAs } from 'file-saver';
 import { debounceTime, distinctUntilChanged, switchMap, catchError, map } from 'rxjs/operators';
 import { Observable, of, Subject } from 'rxjs';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 @Component({
   selector: 'app-findflag',
   templateUrl: './findflag.component.html',
@@ -208,8 +209,10 @@ export class FindflagComponent implements OnInit {
 
   flagUrl: string = '';
   private searchTerm$ = new Subject<string>();
+  isLargeScreen: boolean = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private breakpointObserver: BreakpointObserver) { }
+
 
   ngOnInit(): void {
     this.searchTerm$
@@ -221,6 +224,11 @@ export class FindflagComponent implements OnInit {
       )
       .subscribe(flagUrl => {
         this.flagUrl = flagUrl;
+      });
+
+      this.breakpointObserver.observe([Breakpoints.Large, Breakpoints.XLarge])
+      .subscribe(result => {
+        this.isLargeScreen = result.matches;
       });
   }
 

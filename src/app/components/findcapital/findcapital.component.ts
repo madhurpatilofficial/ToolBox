@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subject, of } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap, catchError } from 'rxjs/operators';
 import { FindCapitalService } from '../../services/find-capital.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-findcapital',
@@ -13,12 +14,22 @@ export class FindcapitalComponent implements OnInit {
   capital: string = '';
   error: string = '';
   countryNames: string[] = [];
+  isLargeScreen: boolean = false;
+
+
+
+
   protected searchTerm$ = new Subject<string>();
 
-  constructor(private findCapitalService: FindCapitalService) { }
+  constructor(private findCapitalService: FindCapitalService, private breakpointObserver: BreakpointObserver) { }
+
 
   ngOnInit(): void {
     this.fetchCountryNames();
+    this.breakpointObserver.observe([Breakpoints.Large, Breakpoints.XLarge])
+    .subscribe(result => {
+      this.isLargeScreen = result.matches;
+    });
 
     this.searchTerm$
       .pipe(
