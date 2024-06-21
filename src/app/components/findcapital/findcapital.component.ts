@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Subject, of } from 'rxjs';
 import { debounceTime, distinctUntilChanged, switchMap, catchError } from 'rxjs/operators';
 import { FindCapitalService } from '../../services/find-capital.service';
@@ -9,28 +9,27 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   templateUrl: './findcapital.component.html',
   styleUrls: ['./findcapital.component.css']
 })
-export class FindcapitalComponent implements OnInit {
+export class FindcapitalComponent implements OnInit, AfterViewInit {
   selectedCountry: string = '';
   capital: string = '';
   error: string = '';
   countryNames: string[] = [];
   isLargeScreen: boolean = false;
 
-
-
-
   protected searchTerm$ = new Subject<string>();
 
   constructor(private findCapitalService: FindCapitalService, private breakpointObserver: BreakpointObserver) { }
 
-
   ngOnInit(): void {
+    this.countryNames;
     this.fetchCountryNames();
     this.breakpointObserver.observe([Breakpoints.Large, Breakpoints.XLarge])
-    .subscribe(result => {
-      this.isLargeScreen = result.matches;
-    });
+      .subscribe(result => {
+        this.isLargeScreen = result.matches;
+      });
+  }
 
+  ngAfterViewInit(): void {
     this.searchTerm$
       .pipe(
         debounceTime(300),
@@ -78,7 +77,7 @@ export class FindcapitalComponent implements OnInit {
       this.capital = '';
       this.error = 'Country information not available for the specified name.';
     }
-  }  
+  }
 
   private handleFetchError(error: any): void {
     this.capital = '';

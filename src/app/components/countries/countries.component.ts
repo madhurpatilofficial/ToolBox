@@ -38,6 +38,8 @@ export class CountriesComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.fetchCountryPopulation();
+    this.renderPopulationChart();
     this.toggleBlinking();
     this.countryService.getAllCountries().subscribe(
       (countries) => {
@@ -49,8 +51,6 @@ export class CountriesComponent implements OnInit {
         this.errorMessage = 'Error fetching countries. Please try again.';
       }
     );
-    this.fetchCountryPopulation();
-    this.renderPopulationChart();
   }
 
   colors: string[] = [
@@ -227,7 +227,10 @@ export class CountriesComponent implements OnInit {
     this.isHiddenInfoVisible = !this.isHiddenInfoVisible;
   }
 
-  createGradient(ctx: CanvasRenderingContext2D, chartArea: any): CanvasGradient {
+  createGradient(
+    ctx: CanvasRenderingContext2D,
+    chartArea: any
+  ): CanvasGradient {
     const gradient = ctx.createLinearGradient(0, 0, 0, chartArea.bottom);
     gradient.addColorStop(0, '#439cfb');
     gradient.addColorStop(1, '#f187fb');
