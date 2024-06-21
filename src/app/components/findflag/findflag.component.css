@@ -126,7 +126,7 @@ h2 {
   color: #000000;
   padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Optional subtle shadow */
-  margin-bottom: 1rem; /* Add some space between title and form */
-  text-align: center; /* Aligns title to center */
+  box-shadow: 0 4px 6px rgb(0 14 252 / 30%);
+  margin-bottom: 1rem;
+  text-align: center;
 }

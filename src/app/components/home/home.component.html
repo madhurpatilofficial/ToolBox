@@ -1,82 +1,110 @@
-<div class="home-container">
+<div class="home-container" routerLink="calculator" routerLinkActive="active">
   <div class="service">
-    <img src="./assets/calculatorImage.png" alt="Calculator Image" loading="lazy">
+    <img
+      src="./assets/calculatorImage.png"
+      alt="Calculator Image"
+      loading="lazy"
+    />
     <div class="service-info">
       <h2>Calculator</h2>
-      <p>{{calculatormessage}}</p>
+      <p>{{ calculatormessage }}</p>
     </div>
   </div>
 
-  <div class="service">
-    <img src="./assets/currencyConverter.png" alt="Currency Converter Image" loading="lazy">
-    <div class="service-info">
-      <h2>Currency Converter</h2>
-      <p>{{currencymessage}}</p>
-    </div>
-  </div>
-
-
-  <div class="service">
-    <img src="./assets/calculator.png" alt="Age Calculator Image" loading="lazy">
+  <div class="service" routerLink="age-calculator" routerLinkActive="active">
+    <img
+      src="./assets/calculator.png"
+      alt="Age Calculator Image"
+      loading="lazy"
+    />
     <div class="service-info">
       <h2>Age Calculator</h2>
-      <p>{{agecalculator}}</p>
+      <p>{{ agecalculator }}</p>
     </div>
   </div>
 
-  <div class="service">
-    <img src="./assets/findCapital.png" alt="Find Capital Image" loading="lazy">
+  <div class="service" routerLink="currencyconverter" routerLinkActive="active">
+    <img
+      src="./assets/currencyConverter.png"
+      alt="Currency Converter Image"
+      loading="lazy"
+    />
+    <div class="service-info">
+      <h2>Currency Converter</h2>
+      <p>{{ currencymessage }}</p>
+    </div>
+  </div>
+
+  <div class="service" routerLink="findcapital" routerLinkActive="active">
+    <img
+      src="./assets/findCapital.png"
+      alt="Find Capital Image"
+      loading="lazy"
+    />
     <div class="service-info">
       <h2>Find Capital</h2>
-      <p>{{capitalmessage}}</p>
+      <p>{{ capitalmessage }}</p>
     </div>
   </div>
 
-  <div class="service">
-    <img src="./assets/colorPicker.jpg" alt="Color Picker Image" class="colorPicker" loading="lazy">
+  <div class="service" routerLink="colorpicker" routerLinkActive="active">
+    <img
+      src="./assets/colorPicker.jpg"
+      alt="Color Picker Image"
+      class="colorPicker"
+      loading="lazy"
+    />
     <div class="service-info">
       <h2>Color Picker</h2>
-      <p>{{ colorpicker}}</p>
+      <p>{{ colorpicker }}</p>
     </div>
   </div>
 
-  <div class="service">
-    <img src="./assets/findFlag.png" alt="Find Flag Image" loading="lazy">
+  <div class="service" routerLink="findflag" routerLinkActive="active">
+    <img src="./assets/findFlag.png" alt="Find Flag Image" loading="lazy" />
     <div class="service-info">
       <h2>Find Flag</h2>
-      <p>{{flagmessage}}</p>
+      <p>{{ flagmessage }}</p>
     </div>
   </div>
 
-  <div class="service">
-    <img src="./assets/clock.png" alt="World Clock Image" loading="lazy">
+  <div class="service" routerLink="worldclock" routerLinkActive="active">
+    <img src="./assets/clock.png" alt="World Clock Image" loading="lazy" />
     <div class="service-info">
       <h2>World Clock</h2>
-      <p>{{clockmessage}}</p>
+      <p>{{ clockmessage }}</p>
     </div>
   </div>
 
-  <div class="service">
-    <img src="./assets/population.jpg" alt="Population Image" loading="lazy">
+  <div class="service" routerLink="population" routerLinkActive="active">
+    <img src="./assets/population.jpg" alt="Population Image" loading="lazy" />
     <div class="service-info">
       <h2>Find Population</h2>
-      <p>{{population}}</p>
+      <p>{{ population }}</p>
     </div>
   </div>
 
-  <div class="service">
-    <img src="./assets/datamanipulation.jpg" alt="Population Image" loading="lazy">
+  <div class="service" routerLink="data-manipulation" routerLinkActive="active">
+    <img
+      src="./assets/datamanipulation.jpg"
+      alt="Population Image"
+      loading="lazy"
+    />
     <div class="service-info">
       <h2>Data Manipulator</h2>
-      <p>{{dataManipulator}}</p>
+      <p>{{ dataManipulator }}</p>
     </div>
   </div>
 
-  <div class="service">
-    <img src="./assets/fontconverter.png" alt="Population Image" loading="lazy">
+  <div class="service" routerLink="fontconverter" routerLinkActive="active">
+    <img
+      src="./assets/fontconverter.png"
+      alt="Population Image"
+      loading="lazy"
+    />
     <div class="service-info">
       <h2>Font Converter</h2>
-      <p>{{fontconverter}}</p>
+      <p>{{ fontconverter }}</p>
     </div>
   </div>
 </div>

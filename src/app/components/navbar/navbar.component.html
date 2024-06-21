@@ -1,59 +1,54 @@
+<nav class="navbar">
+  <div class="brand-container">
+    <div class="brand">ToolBox</div>
 
-    <nav class="navbar">
-      <div class="brand-container">
-        <div class="brand">ToolBox</div>
-
-        <div
-          class="menu-icon"
-          [class.active]="menuIconActive"
-          (click)="toggleMenu()"
-        >
-          ☰
-        </div>
-      </div>
-      <ul *ngIf="!isMenuVisible">
-        <li><a routerLink="" routerLinkActive="active">Home</a></li>
-        <li>
-          <a routerLink="calculator" routerLinkActive="active">Calculator</a>
-        </li>
-        <li>
-          <a routerLink="age-calculator" routerLinkActive="active"
-            >Age Calculator</a
-          >
-        </li>
-        <li>
-          <a routerLink="currencyconverter" routerLinkActive="active"
-            >Currency Converter</a
-          >
-        </li>
-        <li>
-          <a routerLink="findcapital" routerLinkActive="active">Find Capital</a>
-        </li>
-        <li>
-          <a routerLink="colorpicker" routerLinkActive="active">Color Picker</a>
-        </li>
-        <li>
-          <a routerLink="findflag" routerLinkActive="active">Find Flag</a>
-        </li>
-        <li>
-          <a routerLink="worldclock" routerLinkActive="active">World Clock</a>
-        </li>
-        <li>
-          <a routerLink="population" routerLinkActive="active"
-            >Find Population</a
-          >
-        </li>
-        <li>
-          <a routerLink="data-manipulation" routerLinkActive="active"
-            >Data Manipulation</a
-          >
-        </li>
-        <li>
-          <a routerLink="fontconverter" routerLinkActive="active"
-            >Font Converter</a
-          >
-        </li>
-      </ul>
-    </nav>
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
+    <div
+      class="menu-icon"
+      [class.active]="menuIconActive"
+      (click)="toggleMenu()"
+    >
+      ☰
+    </div>
+  </div>
+  <ul *ngIf="!isMenuVisible">
+    <li><a routerLink="" routerLinkActive="active">Home</a></li>
+    <li>
+      <a routerLink="calculator" routerLinkActive="active">Calculator</a>
+    </li>
+    <li>
+      <a routerLink="age-calculator" routerLinkActive="active"
+        >Age Calculator</a
+      >
+    </li>
+    <li>
+      <a routerLink="currencyconverter" routerLinkActive="active"
+        >Currency Converter</a
+      >
+    </li>
+    <li>
+      <a routerLink="findcapital" routerLinkActive="active">Find Capital</a>
+    </li>
+    <li>
+      <a routerLink="colorpicker" routerLinkActive="active">Color Picker</a>
+    </li>
+    <li>
+      <a routerLink="findflag" routerLinkActive="active">Find Flag</a>
+    </li>
+    <li>
+      <a routerLink="worldclock" routerLinkActive="active">World Clock</a>
+    </li>
+    <li>
+      <a routerLink="population" routerLinkActive="active">Find Population</a>
+    </li>
+    <li>
+      <a routerLink="data-manipulation" routerLinkActive="active"
+        >Data Manipulation</a
+      >
+    </li>
+    <li>
+      <a routerLink="fontconverter" routerLinkActive="active">Font Converter</a>
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

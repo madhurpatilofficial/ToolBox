@@ -107,13 +107,13 @@ h2 {
   background-color: #addcfd;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px rgb(0 14 252 / 30%);
   color: #000000;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 600px; /* Adjust the maximum width as per your design */
-  margin: 0 auto; /* Centers the container horizontally */
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 

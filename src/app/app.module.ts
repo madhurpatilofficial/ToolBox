@@ -27,7 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { StringManipulatorComponent } from './components/string-manipulator/string-manipulator.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { AlertModule } from 'ngx-bootstrap/alert'; // Correct import for ngx-bootstrap
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 @NgModule({
   declarations: [
@@ -61,7 +61,7 @@ import { AlertModule } from 'ngx-bootstrap/alert'; // Correct import for ngx-boo
     MatNativeDateModule,
     ReactiveFormsModule,
     MatToolbarModule,
-    AlertModule.forRoot(), // Properly initialize the AlertModule
+    AlertModule.forRoot(),
   ],
   providers: [WorldTimeService],
   bootstrap: [AppComponent],
