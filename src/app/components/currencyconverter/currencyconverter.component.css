@@ -39,11 +39,7 @@
   max-width: 400px;
   margin-top: 2rem;
   padding: 30px;
-  background: linear-gradient(
-    90deg,
-    rgb(252, 128, 161) 0%,
-    rgb(154, 167, 253) 100%
-  );
+  background: #addcfd;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   color: #000000;

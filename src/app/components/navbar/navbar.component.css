@@ -22,10 +22,11 @@ html {
   background-clip: text;
   color: transparent;
   padding: 3px;
+  cursor: pointer;
 }
 
 nav {
-  background: #1B9CFC;
+  background: #1b9cfc;
   overflow: hidden;
   display: flex;
   justify-content: space-between;
@@ -139,8 +140,8 @@ nav a:hover {
   }
 
   nav li {
-    font-size:medium;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight:normal !important;
+    font-size: medium;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-weight: normal !important;
   }
 }

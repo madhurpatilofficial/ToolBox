@@ -1,11 +1,7 @@
 .calculator {
   width: 400px !important;
   padding: 50px;
-  background: linear-gradient(
-    90deg,
-    hsla(211, 96%, 62%, 1) 0%,
-    hsla(295, 94%, 76%, 1) 100%
-  );
+  background: #BDE0FE;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -42,8 +38,8 @@
 .output-display {
   background: linear-gradient(
     90deg,
-    hsla(152, 100%, 50%, 1) 0%,
-    hsla(186, 100%, 69%, 1) 100%
+    rgb(133, 176, 255) 0%,
+    rgb(133, 176, 255)100%
   );
   padding: 20px;
   border-radius: 5px;
