@@ -41,7 +41,8 @@
   padding: 30px;
   background: #addcfd;
   border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0 4px 6px rgb(0 14 252 / 30%);
   color: #000000;
 }
 

@@ -3,7 +3,7 @@
   padding: 50px;
   background: #BDE0FE;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px rgb(0 14 252 / 30%);
   overflow: hidden;
 }
 
@@ -36,11 +36,7 @@
 
 .input-display,
 .output-display {
-  background: linear-gradient(
-    90deg,
-    rgb(133, 176, 255) 0%,
-    rgb(133, 176, 255)100%
-  );
+  background: #25CCF7;
   padding: 20px;
   border-radius: 5px;
   margin-bottom: 20px;

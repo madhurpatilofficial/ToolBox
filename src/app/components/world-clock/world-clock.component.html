@@ -3,51 +3,45 @@
     <h2>World Clock</h2>
   </div>
 
-  <div class="world-clock">
-    <mat-form-field appearance="fill" class="custom-width" class="custom-width">
-      <mat-label>Select a country</mat-label>
-      <mat-select
-        [(ngModel)]="selectedCountryCode"
-        (selectionChange)="onCountryChange()"
-      >
-        <mat-option value="">Select a country</mat-option>
-        <mat-option *ngFor="let country of countries" [value]="country.code">{{
-          country.name
-        }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <div *ngIf="currentTime" class="clock-container">
-      <p class="year">Year: {{ currentTime.year }}</p>
-      <div class="clock">
-        <div
-          class="hour-hand"
-          [style.transform]="
-            'rotate(' + getHourRotation(currentTime.time) + 'deg)'
-          "
-        ></div>
-        <div
-          class="minute-hand"
-          [style.transform]="
-            'rotate(' + getMinuteRotation(currentTime.time) + 'deg)'
-          "
-        ></div>
-        <div
-          class="second-hand"
-          [style.transform]="
-            'rotate(' + getSecondRotation(currentTime.time) + 'deg)'
-          "
-        ></div>
-        <div class="hour-markers">
-          <div class="hour-marker" *ngFor="let hour of hourMarkers"></div>
+  <div class="background-container">
+    <div class="world-clock">
+      <mat-form-field appearance="fill" class="custom-width">
+        <mat-label>Select a country</mat-label>
+        <mat-select [(ngModel)]="selectedCountryCode" (selectionChange)="onCountryChange()">
+          <mat-option value="">Select a country</mat-option>
+          <mat-option *ngFor="let country of countries" [value]="country.code">
+            {{ country.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <div *ngIf="currentTime" class="clock-container">
+        <p class="year">Year: {{ currentTime.year }}</p>
+        <div class="clock">
+          <div
+            class="hour-hand"
+            [style.transform]="'rotate(' + getHourRotation(currentTime.time) + 'deg)'"
+          ></div>
+          <div
+            class="minute-hand"
+            [style.transform]="'rotate(' + getMinuteRotation(currentTime.time) + 'deg)'"
+          ></div>
+          <div
+            class="second-hand"
+            [style.transform]="'rotate(' + getSecondRotation(currentTime.time) + 'deg)'"
+          ></div>
+          <div class="hour-markers">
+            <div class="hour-marker" *ngFor="let hour of hourMarkers"></div>
+          </div>
+          <div class="minute-markers">
+            <div class="minute-marker" *ngFor="let minute of minuteMarkers"></div>
+          </div>
         </div>
-        <div class="minute-markers">
-          <div class="minute-marker" *ngFor="let minute of minuteMarkers"></div>
-        </div>
+  
+        <p class="timezone"><b>Time:</b> {{ currentTime.time }}</p>
+        <p class="timezone"><b>Timezone</b>: {{ currentTime.timezone }}</p>
       </div>
-
-      <p class="timezone"><b>Time:</b> {{ currentTime.time }}</p>
-      <p class="timezone"><b>Timezone</b>: {{ currentTime.timezone }}</p>
     </div>
   </div>
+  
 </div>
