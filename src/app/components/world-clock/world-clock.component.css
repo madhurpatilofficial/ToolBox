@@ -1,3 +1,5 @@
+
+
 .world-clock {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -142,4 +144,40 @@ h2 {
   font-weight: 500;
   text-align: center;
   margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .custom-width {
+    width: 90%; /* Reduce the width of the select field for large screens */
+  }
+
+  .background-container {
+    align-items: center;
+    text-align: center;
+    width: 400px;
+    margin: 20px auto;
+    background: #addcfd;
+    color: #000000;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgb(0 14 252 / 30%);
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 767px) {
+  .background-container {
+    width: 90%;
+    align-items: center;
+    text-align: center;
+    margin: 20px auto;
+    background: #addcfd;
+    color: #000000;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgb(0 14 252 / 30%);
+    font-weight: bold;
+  }
+
+  .custom-width {
+    width: 90%;
+  }
 }
